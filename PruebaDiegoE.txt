@@ -4,3 +4,4 @@ Dolore pariatur quis exercitation incididunt ad sint dolore occaecat incididunt 
 deserunt irure deserunt.
 
 Estoy editando este archivo desde la rama ddeveloment
+Sigo editando el texto, ahora de manera local y voy a subirlo a la rama development sin que sufra cambios la rama main en github
