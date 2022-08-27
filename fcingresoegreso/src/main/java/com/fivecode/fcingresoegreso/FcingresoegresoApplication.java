@@ -2,8 +2,7 @@ package com.fivecode.fcingresoegreso;
 
 import com.fivecode.fcingresoegreso.entity.Empleado;
 import com.fivecode.fcingresoegreso.entity.Empresa;
-import com.fivecode.fcingresoegreso.entity.Transaccion;
-import org.springframework.boot.SpringApplication;
+import com.fivecode.fcingresoegreso.entity.MovimientoDinero;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -34,11 +33,11 @@ public class FcingresoegresoApplication {
 
 
 		//Creando una transancción
-		Transaccion transaccion1 = new Transaccion(0010, "Venta de algodon tipo A", 85000);
+		MovimientoDinero movimientoDinero = new MovimientoDinero(0010, "Venta de algodon tipo A", 85000);
 		System.out.println("-----------Transacción-------------");
-		System.out.println(transaccion1.getIdTransaccion());
-		System.out.println(transaccion1.getDescripcion());
-		System.out.println(transaccion1.getMonto());
+		System.out.println(movimientoDinero.getIdTransaccion());
+		System.out.println(movimientoDinero.getDescripcion());
+		System.out.println(movimientoDinero.getMonto());
 	}
 
 }

@@ -1,11 +1,11 @@
 package com.fivecode.fcingresoegreso.entity;
 
-public class Transaccion {
+public class MovimientoDinero {
     private long idTransaccion;
     private String descripcion;
     private float monto;
 
-    public Transaccion(long idTransaccion, String descripcion, float monto) {
+    public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
         this.idTransaccion = idTransaccion;
         this.descripcion = descripcion;
         this.monto = monto;
