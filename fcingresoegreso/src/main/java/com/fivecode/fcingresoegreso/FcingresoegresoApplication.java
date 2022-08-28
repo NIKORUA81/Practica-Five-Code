@@ -16,19 +16,18 @@ public class FcingresoegresoApplication {
 		System.out.println("-----------Empresa-------------");
 		System.out.println(empresa1.getIdEmpresa());
 		System.out.println(empresa1.getNombre());
-		System.out.println(empresa1.getDocumento());
+		System.out.println(empresa1.getNit());
 		System.out.println(empresa1.getDireccion());
 		System.out.println(empresa1.getTelefono());
 
 
 
 		//Creando un empleado
-		Empleado empleado1 = new Empleado(101, "Diego", "Oviedo", "diego@gmail.com", 100456789);
+		Empleado empleado1 = new Empleado(101, "Diego Oviedo" , "diego@gmail.com", 100456789);
 		System.out.println("-----------Empleado-------------");
 		System.out.println(empleado1.getIdEmpleado());
 		System.out.println(empleado1.getCedula());
 		System.out.println(empleado1.getNombre());
-		System.out.println(empleado1.getApellido());
 		System.out.println(empleado1.getCorreo());
 
 

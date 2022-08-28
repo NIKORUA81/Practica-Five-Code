@@ -5,14 +5,14 @@ public class Empresa {
     private String nombre;
     private String direccion;
     private String telefono;
-    private String documento;
+    private String nit;
 
-    public Empresa(long idEmpresa, String nombre, String direccion, String telefono, String documento) {
+    public Empresa(long idEmpresa, String nombre, String direccion, String telefono, String nit) {
         this.idEmpresa = idEmpresa;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.documento = documento; //Número que identifique la empresa de manera legal
+        this.nit = nit; //Número que identifique la empresa de manera legal
     }
 
     public long getIdEmpresa() {
@@ -47,11 +47,11 @@ public class Empresa {
         this.telefono = telefono;
     }
 
-    public String getDocumento() {
-        return documento;
+    public String getNit() {
+        return nit;
     }
 
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 }
