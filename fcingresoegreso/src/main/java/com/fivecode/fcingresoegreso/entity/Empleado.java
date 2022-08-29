@@ -45,3 +45,4 @@ public class Empleado {
         this.cedula = cedula;
     }
 }
+

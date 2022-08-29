@@ -11,7 +11,8 @@ public class FcingresoegresoApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(FcingresoegresoApplication.class, args);
 
-		//Creando una empresa
+
+//Creando una empresa
 		Empresa empresa1 = new Empresa(123, "Camiones SA", "Calle 24", "3101234567", "1128123000");
 		System.out.println("-----------Empresa-------------");
 		System.out.println(empresa1.getIdEmpresa());
@@ -19,7 +20,6 @@ public class FcingresoegresoApplication {
 		System.out.println(empresa1.getNit());
 		System.out.println(empresa1.getDireccion());
 		System.out.println(empresa1.getTelefono());
-
 
 
 		//Creando un empleado
@@ -40,3 +40,4 @@ public class FcingresoegresoApplication {
 	}
 
 }
+
