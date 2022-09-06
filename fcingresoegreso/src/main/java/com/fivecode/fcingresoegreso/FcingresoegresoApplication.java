@@ -3,16 +3,18 @@ package com.fivecode.fcingresoegreso;
 import com.fivecode.fcingresoegreso.entity.Empleado;
 import com.fivecode.fcingresoegreso.entity.Empresa;
 import com.fivecode.fcingresoegreso.entity.MovimientoDinero;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class FcingresoegresoApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(FcingresoegresoApplication.class, args);
+		SpringApplication.run(FcingresoegresoApplication.class, args);
 
 
-//Creando una empresa
+		//Creando una empresa
+		/*
 		Empresa empresa1 = new Empresa(123, "Camiones SA", "Calle 24", "3101234567", "1128123000");
 		System.out.println("-----------Empresa-------------");
 		System.out.println(empresa1.getIdEmpresa());
@@ -23,7 +25,7 @@ public class FcingresoegresoApplication {
 
 
 		//Creando un empleado
-		Empleado empleado1 = new Empleado(101, "Diego Oviedo" , "diego@gmail.com", 100456789);
+		Empleado empleado1 = new Empleado(101, "Diego Oviedo" , "diego@gmail.com", 100456789, "asd123");
 		System.out.println("-----------Empleado-------------");
 		System.out.println(empleado1.getIdEmpleado());
 		System.out.println(empleado1.getCedula());
@@ -37,7 +39,8 @@ public class FcingresoegresoApplication {
 		System.out.println(movimientoDinero.getIdTransaccion());
 		System.out.println(movimientoDinero.getDescripcion());
 		System.out.println(movimientoDinero.getMonto());
+
+		*/
 	}
 
 }
-

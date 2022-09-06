@@ -4,12 +4,16 @@ public class MovimientoDinero {
     private long idTransaccion;
     private String descripcion;
     private float monto;
+    private Empleado empleado;
+    private boolean estado;
 
+    /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
         this.idTransaccion = idTransaccion;
         this.descripcion = descripcion;
         this.monto = monto;
     }
+    */
 
     public long getIdTransaccion() {
         return idTransaccion;
@@ -33,5 +37,32 @@ public class MovimientoDinero {
 
     public void setMonto(float monto) {
         this.monto = monto;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "MovimientoDinero{" +
+                "idTransaccion=" + idTransaccion +
+                ", descripcion='" + descripcion + '\'' +
+                ", monto=" + monto +
+                ", empleado=" + empleado +
+                ", estado=" + estado +
+                '}';
     }
 }
