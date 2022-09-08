@@ -1,11 +1,12 @@
 package com.fivecode.fcingresoegreso.entity;
 
 public class MovimientoDinero {
-    private long idTransaccion;
+    private int idTransaccion;
     private String descripcion;
     private float monto;
     private Empleado empleado;
     private boolean estado;
+    private Empresa empresa;
 
     /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
@@ -15,11 +16,11 @@ public class MovimientoDinero {
     }
     */
 
-    public long getIdTransaccion() {
+    public int getIdTransaccion() {
         return idTransaccion;
     }
 
-    public void setIdTransaccion(long idTransaccion) {
+    public void setIdTransaccion(int idTransaccion) {
         this.idTransaccion = idTransaccion;
     }
 
@@ -55,6 +56,14 @@ public class MovimientoDinero {
         this.estado = estado;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
     @Override
     public String toString() {
         return "MovimientoDinero{" +
@@ -63,6 +72,8 @@ public class MovimientoDinero {
                 ", monto=" + monto +
                 ", empleado=" + empleado +
                 ", estado=" + estado +
+                ", empresa=" + empresa +
                 '}';
     }
+
 }

@@ -1,7 +1,7 @@
 package com.fivecode.fcingresoegreso.entity;
 
 public class Empresa {
-    private long idEmpresa;
+    private int idEmpresa;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -18,11 +18,11 @@ public class Empresa {
     }
     */
 
-    public long getIdEmpresa() {
+    public int getIdEmpresa() {
         return idEmpresa;
     }
 
-    public void setIdEmpresa(long idEmpresa) {
+    public void setIdEmpresa(int idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
 

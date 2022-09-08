@@ -1,15 +1,15 @@
 package com.fivecode.fcingresoegreso.entity;
 
 public class Rol {
-    private long idRol;
+    private int idRol;
     private String descipcion;
     private boolean estado;
 
-    public long getIdRol() {
+    public int getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(long idRol) {
+    public void setIdRol(int idRol) {
         this.idRol = idRol;
     }
 

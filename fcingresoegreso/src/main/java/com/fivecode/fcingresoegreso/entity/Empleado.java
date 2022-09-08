@@ -1,7 +1,7 @@
 package com.fivecode.fcingresoegreso.entity;
 
 public class Empleado {
-    private long idEmpleado;
+    private int idEmpleado;
     private String nombre;
     private String correo;
     private int cedula;
@@ -18,11 +18,11 @@ public class Empleado {
         this.clave = clave;
     }*/
 
-    public long getIdEmpleado() {
+    public int getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(long idEmpleado) {
+    public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 
