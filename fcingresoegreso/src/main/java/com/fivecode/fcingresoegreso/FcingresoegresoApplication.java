@@ -13,7 +13,7 @@ public class FcingresoegresoApplication {
 
 
 //Creando una empresa
-		Empresa empresa1 = new Empresa(123, "Camiones SA", "Calle 24", "3101234567", "1128123000");
+/*		Empresa empresa1 = new Empresa(123, "Camiones SA", "Calle 24", "3101234567", "1128123000");
 		System.out.println("-----------Empresa-------------");
 		System.out.println(empresa1.getIdEmpresa());
 		System.out.println(empresa1.getNombre());
@@ -37,7 +37,7 @@ public class FcingresoegresoApplication {
 		System.out.println(movimientoDinero.getIdTransaccion());
 		System.out.println(movimientoDinero.getDescripcion());
 		System.out.println(movimientoDinero.getMonto());
+	}*/
 	}
-
 }
 

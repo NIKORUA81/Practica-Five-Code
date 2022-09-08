@@ -5,11 +5,11 @@ public class MovimientoDinero {
     private String descripcion;
     private float monto;
 
-    public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
+ /*   public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
         this.idTransaccion = idTransaccion;
         this.descripcion = descripcion;
         this.monto = monto;
-    }
+    }*/
 
     public long getIdTransaccion() {
         return idTransaccion;
@@ -33,5 +33,14 @@ public class MovimientoDinero {
 
     public void setMonto(float monto) {
         this.monto = monto;
+    }
+
+    @Override
+    public String toString() {
+        return "MovimientoDinero{" +
+                "idTransaccion=" + idTransaccion +
+                ", descripcion='" + descripcion + '\'' +
+                ", monto=" + monto +
+                '}';
     }
 }

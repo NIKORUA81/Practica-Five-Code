@@ -7,13 +7,13 @@ public class Empresa {
     private String telefono;
     private String nit;
 
-    public Empresa(long idEmpresa, String nombre, String direccion, String telefono, String nit) {
+  /*  public Empresa(long idEmpresa, String nombre, String direccion, String telefono, String nit) {
         this.idEmpresa = idEmpresa;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.nit = nit; //Número que identifique la empresa de manera legal
-    }
+    }*/
 
     public long getIdEmpresa() {
         return idEmpresa;
@@ -53,5 +53,16 @@ public class Empresa {
 
     public void setNit(String nit) {
         this.nit = nit;
+    }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "idEmpresa=" + idEmpresa +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", nit='" + nit + '\'' +
+                '}';
     }
 }
