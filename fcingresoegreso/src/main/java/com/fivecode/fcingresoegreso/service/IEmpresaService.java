@@ -1,20 +1,20 @@
 package com.fivecode.fcingresoegreso.service;
 
 import com.fivecode.fcingresoegreso.entity.Empresa;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 
 public interface IEmpresaService {
 
-    public Empresa findById (int id);
+    public Empresa findById (long idEmpresa);
 
     public List<Empresa> findAll();
 
     public Empresa createEmpresa(Empresa empresa);
+    public Empresa upDaEmpresa (long idEmpresa, Empresa empresa);
 
-    public Empresa updateEmpresa(int id, Empresa empresa);
+    public Empresa updateEmpresa(long idEmpresa, Empresa empresa);
 
-    public void deleteEmpresa(int id);
+    public void deleteEmpresa(long idEmpresa);
 }
