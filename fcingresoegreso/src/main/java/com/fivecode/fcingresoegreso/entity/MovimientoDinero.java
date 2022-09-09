@@ -1,12 +1,15 @@
 package com.fivecode.fcingresoegreso.entity;
 
+import java.util.Date;
+
 public class MovimientoDinero {
-    private int idTransaccion;
+    private long idTransaccion;
     private String descripcion;
     private float monto;
     private Empleado empleado;
     private boolean estado;
     private Empresa empresa;
+    private Date fecha;
 
     /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
@@ -16,11 +19,12 @@ public class MovimientoDinero {
     }
     */
 
-    public int getIdTransaccion() {
+    public long getIdTransaccion() {
         return idTransaccion;
     }
 
-    public void setIdTransaccion(int idTransaccion) {
+    public void setIdTransaccion(long idTransaccion) {
+
         this.idTransaccion = idTransaccion;
     }
 
@@ -62,6 +66,14 @@ public class MovimientoDinero {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     @Override
