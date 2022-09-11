@@ -7,10 +7,11 @@ public class Empleado {
     private int cedula;
     private String clave;
     private Empresa empresa;
-    private Rol rol;
+    //private RolPrueba rolPrueba;
     private boolean estado;
 
     private int telefono;
+    private Rol rol;
 
 
     /*public Empleado(long idEmpleado, String nombre, String correo, int cedula, String clave){
@@ -22,10 +23,12 @@ public class Empleado {
     }*/
 
     public long getIdEmpleado() {
+
         return idEmpleado;
     }
 
     public void setIdEmpleado(long idEmpleado) {
+
         this.idEmpleado = idEmpleado;
     }
     public String getNombre() {
@@ -33,63 +36,87 @@ public class Empleado {
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
 
     public String getCorreo() {
+
         return correo;
     }
 
     public void setCorreo(String correo) {
+
         this.correo = correo;
     }
 
     public int getCedula() {
+
         return cedula;
     }
 
     public void setCedula(int cedula) {
+
         this.cedula = cedula;
     }
 
     public String getClave() {
+
         return clave;
     }
 
     public void setClave(String clave) {
+
         this.clave = clave;
     }
 
     public Empresa getEmpresa() {
+
         return empresa;
     }
 
     public void setEmpresa(Empresa empresa) {
+
         this.empresa = empresa;
     }
 
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
     public boolean isEstado() {
+
         return estado;
     }
 
     public void setEstado(boolean estado) {
+
         this.estado = estado;
     }
 
     public int getTelefono() {
+
         return telefono;
     }
 
     public void setTelefono(int telefono) {
+
         this.telefono = telefono;
+    }
+
+    /*public RolPrueba getRolPrueba() {
+
+        return rolPrueba;
+    }
+
+    public void setRolPrueba(RolPrueba rolPrueba) {
+        this.rolPrueba = rolPrueba;
+    }*/
+
+    public Rol getRol() {
+        return
+                rol;
+    }
+
+    public void setRol(Rol rol) {
+
+        this.rol = rol;
     }
 
     @Override
@@ -101,8 +128,9 @@ public class Empleado {
                 ", cedula=" + cedula +
                 ", clave='" + clave + '\'' +
                 ", empresa=" + empresa +
-                ", rol=" + rol +
                 ", estado=" + estado +
+                ", telefono=" + telefono +
+                ", rol=" + rol +
                 '}';
     }
 }

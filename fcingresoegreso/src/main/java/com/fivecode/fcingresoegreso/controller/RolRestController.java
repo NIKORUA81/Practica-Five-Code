@@ -1,6 +1,6 @@
 package com.fivecode.fcingresoegreso.controller;
 
-import com.fivecode.fcingresoegreso.entity.Rol;
+import com.fivecode.fcingresoegreso.entity.RolPrueba;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,49 +11,49 @@ import java.util.List;
 public class RolRestController {
 
     @GetMapping("/rol/{id}")
-    public Rol findById(@PathVariable int id){
-        Rol rol = new Rol();
-        rol.setIdRol(id);
-        rol.setDescipcion("Admin");
-        rol.setEstado(true);
-        return rol;
+    public RolPrueba findById(@PathVariable int id){
+        RolPrueba rolPrueba = new RolPrueba();
+        rolPrueba.setIdRol(id);
+        rolPrueba.setDescipcion("Admin");
+        rolPrueba.setEstado(true);
+        return rolPrueba;
     }
 
     @GetMapping("/rol")
-    public List<Rol> findAll(){
-        List<Rol> roles = new ArrayList<Rol>();
-        Rol rol1 = new Rol();
-        rol1.setIdRol(1);
-        rol1.setDescipcion("Admin");
-        rol1.setEstado(true);
-        roles.add(rol1);
-        Rol rol2 = new Rol();
-        rol2.setIdRol(2);
-        rol2.setDescipcion("User");
-        rol2.setEstado(true);
-        roles.add(rol2);
+    public List<RolPrueba> findAll(){
+        List<RolPrueba> roles = new ArrayList<RolPrueba>();
+        RolPrueba rolPrueba1 = new RolPrueba();
+        rolPrueba1.setIdRol(1);
+        rolPrueba1.setDescipcion("Admin");
+        rolPrueba1.setEstado(true);
+        roles.add(rolPrueba1);
+        RolPrueba rolPrueba2 = new RolPrueba();
+        rolPrueba2.setIdRol(2);
+        rolPrueba2.setDescipcion("User");
+        rolPrueba2.setEstado(true);
+        roles.add(rolPrueba2);
         return roles;
     }
 
     @PostMapping("/rol")
-    public Rol createRol(@RequestBody Rol rol){
-        Rol newRol = new Rol();
-        newRol.setIdRol(3);
-        newRol.setDescipcion(rol.getDescipcion());
-        newRol.setEstado(rol.isEstado());
-        return newRol;
+    public RolPrueba createRol(@RequestBody RolPrueba rolPrueba){
+        RolPrueba newRolPrueba = new RolPrueba();
+        newRolPrueba.setIdRol(3);
+        newRolPrueba.setDescipcion(rolPrueba.getDescipcion());
+        newRolPrueba.setEstado(rolPrueba.isEstado());
+        return newRolPrueba;
     }
 
     @PutMapping("/rol/{id}")
-    public Rol updateRol(@PathVariable int id, @RequestBody Rol rol){
-        Rol putRol = findById(id);
-        putRol.setDescipcion(rol.getDescipcion());
-        putRol.setEstado(rol.isEstado());
-        return putRol;
+    public RolPrueba updateRol(@PathVariable int id, @RequestBody RolPrueba rolPrueba){
+        RolPrueba putRolPrueba = findById(id);
+        putRolPrueba.setDescipcion(rolPrueba.getDescipcion());
+        putRolPrueba.setEstado(rolPrueba.isEstado());
+        return putRolPrueba;
     }
 
     @DeleteMapping("/rol/{id}")
     public void deleteRol(@PathVariable int id){
-        Rol deleteRol = findById(id);
+        RolPrueba deleteRolPrueba = findById(id);
     }
 }

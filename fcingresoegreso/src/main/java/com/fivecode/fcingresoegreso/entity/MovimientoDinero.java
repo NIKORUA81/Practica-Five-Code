@@ -1,5 +1,6 @@
 package com.fivecode.fcingresoegreso.entity;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 public class MovimientoDinero {
@@ -9,7 +10,7 @@ public class MovimientoDinero {
     private Empleado empleado;
     private boolean estado;
     private Empresa empresa;
-    private Date fecha;
+    private LocalTime fecha;
 
     /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
@@ -68,11 +69,11 @@ public class MovimientoDinero {
         this.empresa = empresa;
     }
 
-    public Date getFecha() {
+    public LocalTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalTime fecha) {
         this.fecha = fecha;
     }
 
@@ -85,6 +86,7 @@ public class MovimientoDinero {
                 ", empleado=" + empleado +
                 ", estado=" + estado +
                 ", empresa=" + empresa +
+                ", fecha=" + fecha +
                 '}';
     }
 
