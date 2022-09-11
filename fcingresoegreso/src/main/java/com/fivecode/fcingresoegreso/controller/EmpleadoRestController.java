@@ -66,8 +66,8 @@ public class EmpleadoRestController {
         empleado2.setIdEmpleado(2);
         empleado2.setNombre("Carlos Hernandez");
         empleado2.setCorreo("Carlos@asd.com");
-        empleado2.setCedula(1000789);
-        empleado2.setClave("wer234");
+        empleado2.setCedula(1000555);
+        empleado2.setClave("wer247777");
 
         Empresa empresa2 = new Empresa();
         empresa2.setIdEmpresa(1);
