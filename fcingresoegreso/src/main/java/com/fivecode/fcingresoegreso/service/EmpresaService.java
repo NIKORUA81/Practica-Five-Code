@@ -70,7 +70,7 @@ public class EmpresaService implements IEmpresaService {
         putEmpresa.setNombre(empresa.getNombre());
         putEmpresa.setDireccion(empresa.getDireccion());
         putEmpresa.setTelefono(empresa.getTelefono());
-        putEmpresa.setTelefono(empresa.getTelefono());
+        putEmpresa.setNit(empresa.getNit());
         return putEmpresa;
     }
 
