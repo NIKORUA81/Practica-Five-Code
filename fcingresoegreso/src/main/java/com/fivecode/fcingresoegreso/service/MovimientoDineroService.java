@@ -13,53 +13,45 @@ public class MovimientoDineroService implements IMovimientoDineroService {
 
     @Override
     public MovimientoDinero findById(long idTransaccion) {
-        MovimientoDinero empresa = new MovimientoDinero();
-        empresa.setIdEmpresa(idTransaccion);
-        empresa.setNombre("Totto");
-        empresa.setDireccion("Cl 26 Cra 15");
-        empresa.setTelefono("6525984");
-        empresa.setNit("800978485");
-        return empresa;
+        MovimientoDinero movimiento = new MovimientoDinero();
+        movimiento.setIdTransaccion(idTransaccion);
+        movimiento.setIdTransaccion(1);
+        movimiento.setDescripcion("Venta de Mercancia");
+        movimiento.setMonto(175.5f);
+        return movimiento;
     }
 
     @Override
     public List<MovimientoDinero> findAll() {
-        List<MovimientoDinero> empresas = new ArrayList<MovimientoDinero>();
-        MovimientoDinero empresa1 = new MovimientoDinero();
-        empresa1.setIdEmpresa(1);
-        empresa1.setNombre("Totto");
-        empresa1.setDireccion("Cl 26 Cra 15");
-        empresa1.setTelefono("6525984");
-        empresa1.setNit("800978485");
-        empresas.add(empresa1);
-        MovimientoDinero empresa2 = new MovimientoDinero();
-        empresa2.setIdEmpresa(2);
-        empresa2.setNombre("Quala");
-        empresa2.setDireccion("Cr 6 Clle 155");
-        empresa2.setTelefono("6520000");
-        empresa2.setNit("900078485");
-        empresas.add(empresa2);
-        return empresas;
+        List<MovimientoDinero> movimientos = new ArrayList<MovimientoDinero>();
+        MovimientoDinero movimientoDinero1 = new MovimientoDinero();
+        movimientoDinero1.setIdTransaccion(1);
+        movimientoDinero1.setDescripcion("Venta de Mercancia");
+        movimientoDinero1.setMonto(145.5f);
+        movimientos.add(movimientoDinero1);
+        MovimientoDinero movimientoDinero2 = new MovimientoDinero();
+        movimientoDinero2.setIdTransaccion(2);
+        movimientoDinero2.setDescripcion("Compra de Mercancia");
+        movimientoDinero2.setMonto(15.5f);
+        movimientos.add(movimientoDinero2);
+        return movimientos;
     }
 
     @Override
     public MovimientoDinero createMovimientoDinero(MovimientoDinero movimientoDinero) {
         MovimientoDinero newMovimientoDinero = new MovimientoDinero();
         newMovimientoDinero.setIdTransaccion(movimientoDinero.getIdTransaccion());
-        newMovimientoDinero.setNombre(movimientoDinero.getNombre());
-        newMovimientoDinero.setDireccion(movimientoDinero.getDireccion());
-        newMovimientoDinero.setTelefono(movimientoDinero.getTelefono());
-        newMovimientoDinero.setNit(empresa.getNit());
+        newMovimientoDinero.setDescripcion(movimientoDinero.getDescripcion());
+        newMovimientoDinero.setMonto(movimientoDinero.getMonto());
         return newMovimientoDinero;
     }
 
     @Override
-    public MovimientoDinero upDaMovimientoDinero (@PathVariable long idTransaccion, @RequestBody Empresa empresa){
-        MovimientoDinero patchMovimientoDinero = findById(idEmpresa);
-        patchEmpresa.setNombre(empresa.getNombre());
-        patchEmpresa.setDireccion(empresa.getDireccion());
-        patchEmpresa.setTelefono(empresa.getTelefono());
-        return patchEmpresa;
+    public MovimientoDinero upDaMovimientoDinero (@PathVariable long idTransaccion, @RequestBody MovimientoDinero movimientoDinero){
+        MovimientoDinero patchMovimientoDinero = findById(idTransaccion);
+        patchMovimientoDinero.setDescripcion(movimientoDinero.getDescripcion());
+        patchMovimientoDinero.setMonto(movimientoDinero.getMonto());
+        return patchMovimientoDinero;
     }
 
     @Override

@@ -12,6 +12,7 @@ public interface IMovimientoDineroService {
     public List<MovimientoDinero> findAll();
 
     public MovimientoDinero createMovimientoDinero(MovimientoDinero movimientoDinero);
+
     public MovimientoDinero upDaMovimientoDinero (long idTransaccion, MovimientoDinero movimientoDinero);
 
     public MovimientoDinero updateMovimientoDinero(long idTransaccion, MovimientoDinero movimientoDinero);
