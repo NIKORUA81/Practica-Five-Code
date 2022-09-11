@@ -1,5 +1,6 @@
 package com.fivecode.fcingresoegreso.service;
 
+
 import com.fivecode.fcingresoegreso.entity.Empleado;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class EmpleadoService implements IEmpleadoService {
+public class EmpleadoService implements IEmpleadoService{
 
     @Override
     public Empleado findById(long idEmpleado) {
         Empleado empleado = new Empleado();
         empleado.setIdEmpleado(idEmpleado);
-        empleado.setNombre("Mario Duarte");
-        empleado.setCorreo("sitiene@nose.com");
-        empleado.setCedula(80000111);
+        empleado.setNombre("Raul Huerta");
+        empleado.setCorreo("notiene@notiene.com");
+        empleado.setCedula(25456354);
         return empleado;
     }
 
@@ -26,15 +27,15 @@ public class EmpleadoService implements IEmpleadoService {
         List<Empleado> empleados = new ArrayList<Empleado>();
         Empleado empleado1 = new Empleado();
         empleado1.setIdEmpleado(1);
-        empleado1.setNombre("Mario Duarte");
-        empleado1.setCorreo("sitiene@nose.com");
-        empleado1.setCedula(80000111);
+        empleado1.setNombre("Toto Castro");
+        empleado1.setCorreo("notiene@notiene.com");
+        empleado1.setCedula(25456354);
         empleados.add(empleado1);
         Empleado empleado2 = new Empleado();
         empleado2.setIdEmpleado(2);
-        empleado2.setNombre("Pedro Perez");
-        empleado2.setCorreo("notiene@notiene.com");
-        empleado2.setCedula(79800777);
+        empleado2.setNombre("Trosqui Rocas");
+        empleado2.setCorreo("sitiene@sitiene.com");
+        empleado2.setCedula(456354);
         empleados.add(empleado2);
         return empleados;
     }
@@ -59,7 +60,7 @@ public class EmpleadoService implements IEmpleadoService {
 
     @Override
     public Empleado updateEmpleado(long idEmpleado, Empleado empleado) {
-        Empleado putEmpleado= findById(idEmpleado);
+        Empleado putEmpleado = findById(idEmpleado);
         putEmpleado.setIdEmpleado(empleado.getIdEmpleado());
         putEmpleado.setNombre(empleado.getNombre());
         putEmpleado.setCorreo(empleado.getCorreo());
@@ -71,4 +72,5 @@ public class EmpleadoService implements IEmpleadoService {
     public void deleteEmpleado(long idEmpleado) {
         Empleado deleteEmpleado = findById(idEmpleado);
     }
+
 }

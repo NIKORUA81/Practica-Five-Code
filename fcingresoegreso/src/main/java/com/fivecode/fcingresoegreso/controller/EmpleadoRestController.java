@@ -15,13 +15,13 @@ public class EmpleadoRestController {
     @Autowired
     private IEmpleadoService empleadoService;
 
-
     @GetMapping("/empleado/{idEmpleado}")
     public Empleado findById(@PathVariable long idEmpleado) { return empleadoService.findById(idEmpleado);
     }
 
     @GetMapping("/empleado")
-    public List<Empleado> findAll() { return empleadoService.findAll();
+    public List<Empleado> findAll() {
+        return empleadoService.findAll();
     }
 
     @PostMapping("/empleado")
@@ -45,4 +45,3 @@ public class EmpleadoRestController {
     }
 
 }
-
