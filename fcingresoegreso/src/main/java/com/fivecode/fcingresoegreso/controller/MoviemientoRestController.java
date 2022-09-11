@@ -128,9 +128,6 @@ public class MoviemientoRestController {
         newMovimiento.setDescripcion(movimiento.getDescripcion());
         newMovimiento.setMonto(movimiento.getMonto());
 
-        /*Empresa empresa1 = new Empresa();
-        empresa1.setIdEmpresa(empresa1.getIdEmpresa());
-        */
         newMovimiento.setEmpleado(movimiento.getEmpleado());
         newMovimiento.setEmpresa(movimiento.getEmpresa());
 
@@ -139,5 +136,24 @@ public class MoviemientoRestController {
         return newMovimiento;
     }
 
+    @PutMapping("/movimiento/{id}")
+    public MovimientoDinero updateMovimiento(@PathVariable long id, @RequestBody MovimientoDinero movimiento){
+        MovimientoDinero putMOvimiento = findById(id);
+        putMOvimiento.setIdTransaccion(movimiento.getIdTransaccion());
+        putMOvimiento.setDescripcion(movimiento.getDescripcion());
+        putMOvimiento.setMonto(movimiento.getMonto());
 
+        putMOvimiento.setEmpleado(movimiento.getEmpleado());
+        putMOvimiento.setEmpresa(movimiento.getEmpresa());
+
+        putMOvimiento.setEstado(movimiento.isEstado());
+        putMOvimiento.setFecha(LocalTime.now());
+        return putMOvimiento;
+    }
+
+    @DeleteMapping("/movimiento/{id}")
+    public void deleteMovimiento(@PathVariable long id){
+
+        MovimientoDinero deleteMovimiento = findById(id);
+    }
 }
