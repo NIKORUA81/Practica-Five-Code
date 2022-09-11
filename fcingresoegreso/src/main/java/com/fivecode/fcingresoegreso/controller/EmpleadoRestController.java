@@ -21,13 +21,11 @@ public class EmpleadoRestController {
     }
 
     @GetMapping("/empleado")
-    public List<Empleado> findAll() {
-        return empleadoService.findAll();
+    public List<Empleado> findAll() { return empleadoService.findAll();
     }
 
     @PostMapping("/empleado")
-    public Empleado createEmpleado(@RequestBody Empleado empleado) {
-        return empleadoService.createEmpleado(empleado);
+    public Empleado createEmpleado(@RequestBody Empleado empleado) { return empleadoService.createEmpleado(empleado);
     }
 
     @PatchMapping("/empleado/{idEmpleado}")
