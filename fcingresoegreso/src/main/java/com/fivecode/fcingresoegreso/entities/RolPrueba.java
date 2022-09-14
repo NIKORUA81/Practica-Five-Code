@@ -1,4 +1,4 @@
-package com.fivecode.fcingresoegreso.entity;
+package com.fivecode.fcingresoegreso.entities;
 
 public class RolPrueba {
     private int idRol;

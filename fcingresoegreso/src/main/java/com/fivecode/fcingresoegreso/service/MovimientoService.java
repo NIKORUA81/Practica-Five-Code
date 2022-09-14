@@ -1,8 +1,8 @@
 package com.fivecode.fcingresoegreso.service;
 
-import com.fivecode.fcingresoegreso.entity.Empleado;
-import com.fivecode.fcingresoegreso.entity.Empresa;
-import com.fivecode.fcingresoegreso.entity.MovimientoDinero;
+import com.fivecode.fcingresoegreso.entities.Empleado;
+import com.fivecode.fcingresoegreso.entities.Empresa;
+import com.fivecode.fcingresoegreso.entities.MovimientoDinero;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;

@@ -1,4 +1,4 @@
-package com.fivecode.fcingresoegreso.entity;
+package com.fivecode.fcingresoegreso.entities;
 
 public class Empleado {
     private long idEmpleado;

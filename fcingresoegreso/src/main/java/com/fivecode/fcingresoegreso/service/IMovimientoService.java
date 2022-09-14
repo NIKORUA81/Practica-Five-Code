@@ -1,6 +1,6 @@
 package com.fivecode.fcingresoegreso.service;
 
-import com.fivecode.fcingresoegreso.entity.MovimientoDinero;
+import com.fivecode.fcingresoegreso.entities.MovimientoDinero;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.fivecode.fcingresoegreso.controller;
 
-import com.fivecode.fcingresoegreso.entity.RolPrueba;
+import com.fivecode.fcingresoegreso.entities.RolPrueba;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

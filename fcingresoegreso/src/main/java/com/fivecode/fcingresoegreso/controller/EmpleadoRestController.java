@@ -1,13 +1,10 @@
 package com.fivecode.fcingresoegreso.controller;
 
-import com.fivecode.fcingresoegreso.entity.Empleado;
-import com.fivecode.fcingresoegreso.entity.Empresa;
-import com.fivecode.fcingresoegreso.entity.Rol;
+import com.fivecode.fcingresoegreso.entities.Empleado;
 import com.fivecode.fcingresoegreso.service.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

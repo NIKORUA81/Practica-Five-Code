@@ -1,11 +1,23 @@
-package com.fivecode.fcingresoegreso.entity;
+package com.fivecode.fcingresoegreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="empresas")
 public class Empresa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_rol", nullable = false)
     private long idEmpresa;
+    @Column(name = "nombre", nullable = false) //Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private String nombre;
+    @Column(name = "direccion", nullable = false) //nullable = false, el campo no puede estar nulo
     private String direccion;
+    @Column(name = "telefono", nullable = false)
     private String telefono;
+    @Column(name = "nit", nullable = false)
     private String nit;
+    @Column(name = "estado")
     private boolean estado;
 
     /*

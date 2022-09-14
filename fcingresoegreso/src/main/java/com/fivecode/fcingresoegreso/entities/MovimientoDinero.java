@@ -1,7 +1,6 @@
-package com.fivecode.fcingresoegreso.entity;
+package com.fivecode.fcingresoegreso.entities;
 
 import java.time.LocalTime;
-import java.util.Date;
 
 public class MovimientoDinero {
     private long idTransaccion;

@@ -1,8 +1,6 @@
 package com.fivecode.fcingresoegreso.service;
 
-import com.fivecode.fcingresoegreso.entity.Empleado;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.fivecode.fcingresoegreso.entities.Empleado;
 
 import java.util.List;
 

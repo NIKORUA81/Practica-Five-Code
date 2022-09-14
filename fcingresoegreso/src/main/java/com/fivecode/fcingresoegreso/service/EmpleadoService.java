@@ -1,8 +1,8 @@
 package com.fivecode.fcingresoegreso.service;
 
-import com.fivecode.fcingresoegreso.entity.Empleado;
-import com.fivecode.fcingresoegreso.entity.Empresa;
-import com.fivecode.fcingresoegreso.entity.Rol;
+import com.fivecode.fcingresoegreso.entities.Empleado;
+import com.fivecode.fcingresoegreso.entities.Empresa;
+import com.fivecode.fcingresoegreso.entities.Rol;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
