@@ -30,6 +30,7 @@ public class Empresa {
     }
     */
 
+    //Getters y Setters
     public long getIdEmpresa() {
         return idEmpresa;
     }
