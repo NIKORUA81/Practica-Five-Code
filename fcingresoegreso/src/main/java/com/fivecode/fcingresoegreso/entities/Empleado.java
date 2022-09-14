@@ -1,16 +1,33 @@
 package com.fivecode.fcingresoegreso.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "empleados")
 public class Empleado {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empleado", nullable = false)//Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private long idEmpleado;
+    @Column(name = "nombre", nullable = false) //nullable = false, el campo no puede estar nulo
     private String nombre;
+    @Column(name = "correo", nullable = false)
     private String correo;
+    @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
     private int cedula;
+    @Column(name = "clave", nullable = false)
     private String clave;
+    @ManyToOne //Cardinalidad
+    @JoinColumn(name = "empresa", nullable = false)
     private Empresa empresa;
     //private RolPrueba rolPrueba;
+    @Column(name = "estado")
     private boolean estado;
-
+    @Column(name = "telefono", nullable = false)
     private int telefono;
+
+    @Column(name = "rol")
     private Rol rol;
 
 

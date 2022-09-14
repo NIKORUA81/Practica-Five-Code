@@ -1,6 +1,8 @@
 package com.fivecode.fcingresoegreso.service;
 
 import com.fivecode.fcingresoegreso.entities.Empresa;
+import com.fivecode.fcingresoegreso.repository.IEmpresaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +11,8 @@ import java.util.List;
 @Service
 public class EmpresaService implements IEmpresaService{
 
-
+    @Autowired
+    private IEmpresaRepository empresaRepository;
     @Override
     public Empresa findById(long id) {
         Empresa empresa = new Empresa();
