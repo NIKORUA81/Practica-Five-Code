@@ -1,14 +1,35 @@
 package com.fivecode.fcingresoegreso.entities;
 
+import javax.persistence.*;
 import java.time.LocalTime;
 
+@Entity
+@Table(name = "movimientos")
 public class MovimientoDinero {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_transaccion", nullable = false)//Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private long idTransaccion;
+
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
+
+    @Column(name = "monto", nullable = false)
     private float monto;
+
+    @ManyToOne
+    @JoinColumn(name = "empleado", nullable = false)
     private Empleado empleado;
+
+    @Column(name = "estado", nullable = false)
     private boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa", nullable = false)
     private Empresa empresa;
+
+    @Column(name = "fecha", nullable = false)
     private LocalTime fecha;
 
     /*

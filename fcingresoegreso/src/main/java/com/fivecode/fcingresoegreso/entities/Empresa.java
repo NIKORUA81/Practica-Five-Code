@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_rol", nullable = false)
+    @Column(name = "id_empresa", nullable = false)
     private long idEmpresa;
     @Column(name = "nombre", nullable = false) //Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private String nombre;
