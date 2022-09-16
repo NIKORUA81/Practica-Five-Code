@@ -6,15 +6,22 @@
 </head>
 <body>
     <h1>Lista de Empleados</h1>
-    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/}">Inicio</a><br>
+    <a th:href="@{/empleados/crear}">Nuevo Empleado</a>
     <table border="1">
         <tr>
             <th>Nombre</th>
+            <th>Cédula</th>
             <th>Telefono</th>
+            <th>Correo</th>
+            <th>Empresa</th>
         </tr>
         <tr th:each="empleado : ${empleados}">
             <td th:text="${empleado.nombre}"></td>
+            <td th:text="${empleado.cedula}"></td>
+            <td th:text="${empleado.telefono}"></td>
             <td th:text="${empleado.correo}"></td>
+            <td th:text="${empleado.empresa}"></td>
         </tr>
     </table>
 </body>

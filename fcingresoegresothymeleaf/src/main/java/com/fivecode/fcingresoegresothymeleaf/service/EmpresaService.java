@@ -32,7 +32,7 @@ public class EmpresaService implements IEmpresaService{
     }
 
     @Override
-    public Empresa updateEmpresa(long id, Empresa empresa) {
+    public Empresa updateEmpresa(Empresa empresa) {
         Empresa putEmpresa = empresaRepository.save(empresa);
         return putEmpresa;
     }

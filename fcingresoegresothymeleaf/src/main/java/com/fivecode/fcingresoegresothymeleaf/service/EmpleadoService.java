@@ -32,7 +32,7 @@ public class EmpleadoService implements IEmpleadoService{
     }
 
     @Override
-    public Empleado updateEmpleado(long id, Empleado empleado) {
+    public Empleado updateEmpleado(Empleado empleado) {
         Empleado putEmpleado = empleadoRepository.save(empleado);
         return putEmpleado;
     }

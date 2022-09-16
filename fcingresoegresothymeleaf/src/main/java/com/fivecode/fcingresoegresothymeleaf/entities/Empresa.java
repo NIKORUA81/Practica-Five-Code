@@ -1,6 +1,7 @@
 package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="empresas")
@@ -19,6 +20,14 @@ public class Empresa {
     private String nit;
     @Column(name = "estado")
     private boolean estado;
+
+    /*
+    @Column(name = "created_at")
+    private Date CreateAt;
+
+    @Column(name = "update_at")
+    private Date UpddateAt;
+    */
 
     /*
     public Empresa(long idEmpresa, String nombre, String direccion, String telefono, String nit) {

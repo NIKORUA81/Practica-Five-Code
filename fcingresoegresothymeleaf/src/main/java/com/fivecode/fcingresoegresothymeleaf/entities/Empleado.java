@@ -1,6 +1,7 @@
 package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "empleados")
@@ -10,12 +11,16 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empleado", nullable = false)//Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private long idEmpleado;
+    @NotEmpty
     @Column(name = "nombre", nullable = false) //nullable = false, el campo no puede estar nulo
     private String nombre;
+    @NotEmpty
     @Column(name = "correo", nullable = false)
     private String correo;
+    @NotEmpty
     @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
     private int cedula;
+    @NotEmpty
     @Column(name = "clave", nullable = false)
     private String clave;
     @ManyToOne //Cardinalidad

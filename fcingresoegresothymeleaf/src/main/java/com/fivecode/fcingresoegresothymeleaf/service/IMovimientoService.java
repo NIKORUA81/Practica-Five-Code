@@ -12,7 +12,7 @@ public interface IMovimientoService {
 
     public MovimientoDinero createMovimiento(MovimientoDinero movimiento);
 
-    public MovimientoDinero updateMovimiento(long id, MovimientoDinero movimiento);
+    public MovimientoDinero updateMovimiento(MovimientoDinero movimiento);
 
     public void deleteMovimiento(long id);
 }

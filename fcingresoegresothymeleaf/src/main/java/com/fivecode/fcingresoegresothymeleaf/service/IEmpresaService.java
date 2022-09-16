@@ -12,7 +12,7 @@ public interface IEmpresaService {
 
     public Empresa createEmpresa(Empresa empresa);
 
-    public Empresa updateEmpresa(long id, Empresa empresa);
+    public Empresa updateEmpresa(Empresa empresa);
 
     public void deleteEmpresa(long id);
 }
