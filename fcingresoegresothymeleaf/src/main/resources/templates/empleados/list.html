@@ -7,5 +7,15 @@
 <body>
     <h1>Lista de Empleados</h1>
     <a th:href="@{/}">Inicio</a>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Telefono</th>
+        </tr>
+        <tr th:each="empleado : ${empleados}">
+            <td th:text="${empleado.nombre}"></td>
+            <td th:text="${empleado.correo}"></td>
+        </tr>
+    </table>
 </body>
 </html>
