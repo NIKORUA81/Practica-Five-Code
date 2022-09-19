@@ -9,13 +9,20 @@
   <a th:href="@{/}">Inicio</a>
   <br>
   <a th:href="@{/empresas/list}">Empresas</a>
-  <form th:action="@{/guardar}" method="post" th:object="${empresa}">
+  <form th:action="@{/empresas/guardar}" method="post" th:object="${empresa}">
     <label for="nit">Nit</label>
     <input type="text" name="cedula" th:field="*{nit}"/>
     <br>
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" th:field="*{nombre}"/>
     <br>
+    <label for="direccion">Dirección</label>
+    <input type="text" name="direccion" th:field="*{direccion}"/>
+    <br>
+    <label for="telefono">Teléfono</label>
+    <input type="text" name="telefono" th:field="*{telefono}"/>
+    <br>
+    <input type="submit" name="guardar" value="Guardar">
   </form>
 </body>
 </html>

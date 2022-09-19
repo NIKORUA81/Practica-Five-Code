@@ -14,14 +14,18 @@
             <th>Cédula</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Empresa</th>
+            <!--<th>Empresa</th>-->
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
-        <tr th:each="empleado : ${empleados}">
+        <tr th:each="empleado : ${empleados}" th:if="${empleado.estado}">
             <td th:text="${empleado.nombre}"></td>
             <td th:text="${empleado.cedula}"></td>
             <td th:text="${empleado.telefono}"></td>
             <td th:text="${empleado.correo}"></td>
-            <td th:text="${empleado.empresa}"></td>
+            <!--<td th:text="${empleado.empresa}"></td>-->
+            <td><a th:href="@{/editar/}+${empleado.idEmpleado}" th:text="Editar"></a></td>
+            <td><a th:href="@{/eliminar/}+${empleado.idEmpleado}" th:text="Eliminar">Eliminar</a></td>
         </tr>
     </table>
 </body>

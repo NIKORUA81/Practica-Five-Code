@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar Usuarios</title>
+    <title>Datos del Empleado</title>
 </head>
 <body>
-  <h1>Eliminar Usuario</h1>
+    <h1>Datos del Empleado</h1>
+    <a th:href="@{/}">Inicio</a>
+    <br>
+    <a th:href="@{/empleados/list}">Empleados</a>
+    <br>
+    <form th:action="@{/empleados/desactivar}" method="post" th:object="${empleado}">
+        <input type="hidden" name="idEmpleado" th:field="*{idEmpleado}" />
+        <br>
+        <label for="cedula">Cédula</label>
+        <label name="cedula" th:text="*{cedula}">Cédula</label>
+        <input type="text" name="cedula" th:field="*{cedula}" disabled="true"/>
+        <br>
+        <label for="nombre">Nombre</label>
+        <label name="nombre" th:text="*{nombre}"/>
+        <input type="text" name="nombre" th:field="*{nombre}" disabled="true"/>
+        <br>
+        <label for="correo">Correo</label>
+        <label name="correo" th:text="*{correo}"/>
+        <input type="email" name="correo" th:field="*{correo}" disabled="true"/>
+        <br>
+        <label for="clave">Clave</label>
+        <input type="text" name="clave" th:field="*{clave}" disabled="true"/>
+        <br>
+        <label for="telefono">Teléfono</label>
+        <label name="telefono" th:text="*{telefono}"/>
+        <input type="text" name="telefono" th:field="*{telefono}" disabled="true"/>
+        <br>
+
+        <label for="rol">Rol</label>
+        <select th:field="*{rol}" name="rol" >
+            <option value="0" selected>Seleccione el rol</option>
+            <option th:each="rol : ${T(com.fivecode.fcingresoegresothymeleaf.entities.Rol).values()}"
+                    th:value="${rol}"
+                    th:text="${rol}"
+            ></option>
+        </select>
+
+        <label for="empresa">Empresa</label>
+        <select th:field="*{empresa.idEmpresa}" name="empresa">
+            <option value="0" selected>Seleccione la empresa</option>
+            <option th:each="empresa : ${empresas}"
+                    th:value="${empresa.idEmpresa}"
+                    th:text="${empresa.nombre}"
+            ></option>
+        </select>
+        <br>
+        <input type="submit" name="desactivar" value="Desactivar">
+    </form>
 </body>
 </html>

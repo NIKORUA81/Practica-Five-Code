@@ -2,25 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Datos del Usuario</title>
+    <title>Datos del Empleado</title>
 </head>
 <body>
-    <h1>Datos del usuario</h1>
+    <h1>Datos del Empleado</h1>
     <a th:href="@{/}">Inicio</a>
-    <form th:action="@{/guardar}" method="post" th:object="${empleado}">
+    <br>
+    <a th:href="@{/empleados/list}">Empleados</a>
+    <br>
+    <form th:action="@{/empleados/guardar}" method="post" th:object="${empleado}">
+        <input type="hidden" name="idEmpleado" th:field="*{idEmpleado}" />
+        <br>
         <label for="cedula">Cédula</label>
         <input type="text" name="cedula" th:field="*{cedula}"/>
         <br>
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" th:field="*{nombre}"/>
         <br>
-        <select>
+        <label for="correo">Correo</label>
+        <input type="email" name="correo" th:field="*{correo}"/>
+        <br>
+        <label for="clave">Clave</label>
+        <input type="text" name="clave" th:field="*{clave}"/>
+        <br>
+        <label for="telefono">Teléfono</label>
+        <input type="text" name="telefono" th:field="*{telefono}"/>
+        <br>
+
+        <label for="rol">Rol</label>
+        <select th:field="*{rol}" name="rol">
+            <option value="0" selected>Seleccione el rol</option>
+            <option th:each="rol : ${T(com.fivecode.fcingresoegresothymeleaf.entities.Rol).values()}"
+                    th:value="${rol}"
+                    th:text="${rol}"
+            ></option>
+        </select>
+
+        <label for="empresa">Empresa</label>
+        <select th:field="*{empresa.idEmpresa}" name="empresa">
             <option value="0" selected>Seleccione la empresa</option>
             <option th:each="empresa : ${empresas}"
                     th:value="${empresa.idEmpresa}"
                     th:text="${empresa.nombre}"
             ></option>
         </select>
+        <br>
+        <input type="submit" name="guardar" value="Guardar">
     </form>
 </body>
 </html>

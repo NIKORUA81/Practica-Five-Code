@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -37,5 +38,14 @@ public class EmpresaController {
         Empresa empresa = new Empresa();
         modelo.addAttribute("empresa", empresa);
         return "/empresas/modificar";
+    }
+
+    @PostMapping("/empresas/guardar")
+    public String guardarEmpresa(Empresa enterprise){
+        LOG.log(Level.INFO, "guardarEmpresa");
+        enterprise.setEstado(true);
+        System.out.println(enterprise.toString());
+        enterprise = empresaService.createEmpresa(enterprise);
+        return "redirect:/empresas/list";
     }
 }

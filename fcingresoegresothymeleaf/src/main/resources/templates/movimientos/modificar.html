@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Movimiento</title>
+</head>
+<body>
+  <h1>Movimiento</h1>
+  <a th:href="@{/}">Inicio</a>
+  <br>
+  <a th:href="@{/movimientos/list}">Movimientos</a>
+  <form th:action="@{/movimientos/guardar}" method="post" th:object="${movimiento}">
+    <label for="fecha">Fecha</label>
+    <input type="date" name="fecha" th:field="*{fecha}"/>
+    <br>
+
+    <label for="descripcion">Descripción</label>
+    <input type="text" name="descripcion" th:field="*{descripcion}"/>
+    <br>
+    <label for="monto">Monto</label>
+    <input type="text" name="monto" th:field="*{monto}"/>
+    <br>
+    <label for="empleado">Empleado</label>
+    <input type="text" name="empleado" th:field="*{empleado}"/>
+    <br>
+    <label for="empresa">Empresa</label>
+    <input type="text" name="empresa" th:field="*{empresa}"/>
+    <br>
+    <input type="submit" name="guardar" value="Guardar">
+  </form>
+</body>
+</html>
