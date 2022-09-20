@@ -62,7 +62,7 @@ public class EmpleadoController {
     }
 
     @PostMapping("/empleados/guardar")
-    public String guardarEmpleado(@Valid Empleado employee, BindingResult error){
+    public String guardarEmpleado(@Valid Empleado employee, BindingResult error, Model model){
         LOG.log(Level.INFO, "guardarEmpleado");
         /*
         if(employee.getEmpresa().getIdEmpresa() == -1) {
@@ -73,6 +73,9 @@ public class EmpleadoController {
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
+            //Empresas
+            List<Empresa> empresas = empresaService.findAll();
+            model.addAttribute("empresas", empresas);
             return "/empleados/modificar";
         }
         employee.setEstado(true);

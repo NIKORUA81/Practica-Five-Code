@@ -2,6 +2,7 @@ package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "empleados")
@@ -14,13 +15,13 @@ public class Empleado {
     @javax.validation.constraints.NotEmpty
     @Column(name = "nombre", nullable = false) //nullable = false, el campo no puede estar nulo
     private String nombre;
-    @NotEmpty
+    @Pattern(regexp = "[a-zA-Z0-9!#$%&'*_+-]([\\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\\/()=?¿!.,:;]|\\d)+[a-zA-Z0-9][\\.][a-zA-Z]{2,4}([\\.][a-zA-Z]{2})?" ,message = "Debe ser un correo electrónico válido")
     @Column(name = "correo", nullable = false)
     private String correo;
     @NotEmpty
     @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
     private String cedula;
-    @javax.validation.constraints.NotEmpty
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])([A-Za-z\\d$@$!%*?&]|[^ ]){8,15}$" , message = "La contraseña debe contener minimo 8 caracteres, máximo 15, una letra mayúscula, una letra minuscula, un número, un caracter especial y sin espacios en blanco")
     @Column(name = "clave", nullable = false)
     private String clave;
     @ManyToOne //Cardinalidad

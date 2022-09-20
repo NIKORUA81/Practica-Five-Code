@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Plantilla</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}">
 </head>
 <body>
-    <header th:fragment="header">
+    <header class="container" th:fragment="header">
       <h1>Gestion de Ingresos y Egresos</h1>
     </header>
 
-    <footer th:fragment="footer">
+    <footer class="container" th:fragment="footer">
         <p>Desarrollado por <a href="#">Five Code</a></p>
     </footer>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
 </html>
