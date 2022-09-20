@@ -30,7 +30,7 @@ public class Empleado {
     @Column(name = "estado")
     private boolean estado;
     @Column(name = "telefono", nullable = false)
-    private int telefono;
+    private String telefono;
 
     @Column(name = "rol")
     private Rol rol;
@@ -110,13 +110,11 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public int getTelefono() {
-
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
-
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -145,11 +143,11 @@ public class Empleado {
                 "idEmpleado=" + idEmpleado +
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
-                ", cedula=" + cedula +
+                ", cedula='" + cedula + '\'' +
                 ", clave='" + clave + '\'' +
                 ", empresa=" + empresa +
                 ", estado=" + estado +
-                ", telefono=" + telefono +
+                ", telefono='" + telefono + '\'' +
                 ", rol=" + rol +
                 '}';
     }

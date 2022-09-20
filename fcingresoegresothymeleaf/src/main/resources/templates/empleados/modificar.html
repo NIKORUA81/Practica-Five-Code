@@ -30,7 +30,7 @@
         <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">Error clave</span>
         <br>
         <label for="telefono">Teléfono</label>
-        <input type="text" name="telefono" th:field="*{telefono}" />
+        <input type="text" name="telefono" th:field="*{telefono}" placeholder="310000000"/>
         <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error telefono</span>
         <br>
 
