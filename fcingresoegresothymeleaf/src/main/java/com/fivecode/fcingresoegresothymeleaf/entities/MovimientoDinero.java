@@ -2,6 +2,7 @@ package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "movimientos")
@@ -25,12 +26,14 @@ public class MovimientoDinero {
     @Column(name = "estado", nullable = false)
     private boolean estado;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "empresa", nullable = false)
     private Empresa empresa;
+    */
 
     @Column(name = "fecha", nullable = false)
-    private LocalTime fecha;
+    private Date fecha;
 
     /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
@@ -81,6 +84,7 @@ public class MovimientoDinero {
         this.estado = estado;
     }
 
+    /*
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -88,12 +92,13 @@ public class MovimientoDinero {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+    */
 
-    public LocalTime getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalTime fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -105,7 +110,6 @@ public class MovimientoDinero {
                 ", monto=" + monto +
                 ", empleado=" + empleado +
                 ", estado=" + estado +
-                ", empresa=" + empresa +
                 ", fecha=" + fecha +
                 '}';
     }

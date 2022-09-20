@@ -11,7 +11,7 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empleado", nullable = false)//Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private long idEmpleado;
-    @NotEmpty
+    @javax.validation.constraints.NotEmpty
     @Column(name = "nombre", nullable = false) //nullable = false, el campo no puede estar nulo
     private String nombre;
     @NotEmpty
@@ -19,8 +19,8 @@ public class Empleado {
     private String correo;
     @NotEmpty
     @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
-    private int cedula;
-    @NotEmpty
+    private String cedula;
+    @javax.validation.constraints.NotEmpty
     @Column(name = "clave", nullable = false)
     private String clave;
     @ManyToOne //Cardinalidad
@@ -72,13 +72,11 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public int getCedula() {
-
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
-
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 

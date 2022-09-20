@@ -5,7 +5,8 @@
     <title>Lista de Empresas</title>
 </head>
 <body>
-    <h1>Lista de Empresas</h1>
+    <header th:replace="layout/plantilla :: header"></header>
+    <h2>Lista de Empresas</h2>
     <a th:href="@{/}">Inicio</a>
     <br>
     <a th:href="@{/empresas/crear}">Nueva empresa</a>
@@ -23,5 +24,7 @@
             <td th:text="${empresa.telefono}"></td>
         </tr>
     </table>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>

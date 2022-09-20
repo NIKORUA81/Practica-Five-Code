@@ -5,7 +5,8 @@
     <title>Lista de Movimientos</title>
 </head>
 <body>
-    <h1>Lista de Movimientos</h1>
+    <header th:replace="layout/plantilla :: header"></header>
+    <h2>Lista de Movimientos</h2>
     <a th:href="@{/}">Inicio</a><br>
     <a th:href="@{/movimientos/crear}">Nuevo Movimiento</a>
     <table border="1">
@@ -24,5 +25,7 @@
             <td th:text="${movimiento.empresa}"></td>
         </tr>
     </table>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>

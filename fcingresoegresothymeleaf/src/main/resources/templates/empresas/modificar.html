@@ -11,7 +11,7 @@
   <a th:href="@{/empresas/list}">Empresas</a>
   <form th:action="@{/empresas/guardar}" method="post" th:object="${empresa}">
     <label for="nit">Nit</label>
-    <input type="text" name="cedula" th:field="*{nit}"/>
+    <input type="text" name="nit" th:field="*{nit}" />
     <br>
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" th:field="*{nombre}"/>
@@ -20,7 +20,7 @@
     <input type="text" name="direccion" th:field="*{direccion}"/>
     <br>
     <label for="telefono">Teléfono</label>
-    <input type="text" name="telefono" th:field="*{telefono}"/>
+    <input type="text" name="telefono" th:field="*{telefono}" />
     <br>
     <input type="submit" name="guardar" value="Guardar">
   </form>

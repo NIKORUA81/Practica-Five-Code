@@ -5,7 +5,8 @@
     <title>Lista de Empleados</title>
 </head>
 <body>
-    <h1>Lista de Empleados</h1>
+    <header th:replace="layout/plantilla :: header"></header>
+    <h2>Lista de Empleados</h2>
     <a th:href="@{/}">Inicio</a><br>
     <a th:href="@{/empleados/crear}">Nuevo Empleado</a>
     <table border="1">
@@ -28,5 +29,7 @@
             <td><a th:href="@{/eliminar/}+${empleado.idEmpleado}" th:text="Eliminar">Eliminar</a></td>
         </tr>
     </table>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>
