@@ -4,15 +4,75 @@
     <meta charset="UTF-8">
     <title>Plantilla</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}">
-</head>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" ></head>
 <body>
-    <header class="container" th:fragment="header">
-      <h1>Gestion de Ingresos y Egresos</h1>
+    <header th:fragment="header">
+
+        <nav class="navbar navbar-expand-sm navbar-dark p-2" style="background-color: #0d1b2a;">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand">Gestion de Ingresos y Eresos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2">
+                            <a th:href="@{/}" class="nav-link active">Inicio</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2 mr-4">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span>Bienvenido</span>
+                                <span>Empleado</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mr-4">
+                            <form method="post" th:action="@{logout}">
+                                <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                    <i class="fas fa-user-times"></i>
+                                    Salir
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+      <!--<h1>Gestion de Ingresos y Egresos</h1>-->
     </header>
 
-    <footer class="container" th:fragment="footer">
-        <p>Desarrollado por <a href="#">Five Code</a></p>
+    <section th:fragment="mainIndex" id="main-index" class="py-2" style="background-color: #e0e1dd;">
+        <div class="container">
+            <div class="row">
+                <h1 class="col-md-6">
+                    <i class="fas fa-cog"></i>Sistema movimientos
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section th:fragment="mainClientes" id="main-cliente" class="py-2 bg-info text-white">
+        <div class="container">
+            <div class="row">
+                <h1 class="col-md-6">
+                    <i class="fas fa-cog"></i>Sistema clientes
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <footer th:fragment="footer" class="p-2 mt-2 text-white" style="background-color: #0d1b2a;"><!--acb7c3-->
+        <div class="container">
+            <div class="col">
+                <p class="lead text-center">
+                    <span>Desarrollado por &copy; <a href="#" target="_blank">Five Code</a></span>
+                </p>
+            </div>
+        </div>
     </footer>
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
     <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>

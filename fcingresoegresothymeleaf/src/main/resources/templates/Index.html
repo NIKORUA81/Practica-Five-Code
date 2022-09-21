@@ -4,15 +4,47 @@
     <meta charset="UTF-8">
     <title>Five Code</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <h2>Menú</h2>
-    <p th:text="${mensaje}"></p>
-    <a th:href="@{/empleados/list}">Empleados</a>
-    <a th:href="@{/empresas/list}">Empresas</a>
-    <a th:href="@{/movimientos/list}">Movimientos</a>
+    <section th:replace="layout/plantilla :: mainIndex"></section>
+    <div class="container m-3">
+        <p th:text="${mensaje}" ></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <a th:href="@{/empleados/list}">
+                        <img th:src="@{/images/employee640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgEmpleados" title="Empleados">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a th:href="@{/empleados/list}" class="nav-link active" style="color:#0d1b2a;">Empleados</a></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <a th:href="@{/empresas/list}">
+                        <img th:src="@{/images/store-832188_640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgEmpresas" title="Empresas">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a th:href="@{/empresas/list}" class="nav-link active" style="color:#0d1b2a;">Empresas</a></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <a th:href="@{/movimientos/list}">
+                        <img th:src="@{/images/finanza-385506_640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgMovimientos" title="Movimientos">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a th:href="@{/movimientos/list}" class="nav-link active" style="color:#0d1b2a;">Movimientos</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer th:replace="layout/plantilla :: footer"></footer>
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
