@@ -1,6 +1,7 @@
 package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
@@ -10,12 +11,15 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empresa", nullable = false)
     private long idEmpresa;
+    @NotEmpty
     @Column(name = "nombre", nullable = false) //Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private String nombre;
+    @NotEmpty
     @Column(name = "direccion", nullable = false) //nullable = false, el campo no puede estar nulo
     private String direccion;
     @Column(name = "telefono", nullable = false)
     private String telefono;
+    @NotEmpty
     @Column(name = "nit", nullable = false)
     private String nit;
     @Column(name = "estado")

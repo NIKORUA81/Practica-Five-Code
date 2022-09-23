@@ -1,0 +1,24 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body{
+    margin: 0px;
+    margin-bottom: 200px;
+    /*background-color: #D7FBE8;*/
+}
+
+.footer-down{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+img .he{
+    height: 190px;
+}
+
+.tcenter{
+    text-align: center;
+}

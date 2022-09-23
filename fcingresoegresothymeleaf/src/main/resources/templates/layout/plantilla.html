@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <title>Plantilla</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" ></head>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css.footer.css}">
+</head>
 <body>
     <header th:fragment="header">
 
         <nav class="navbar navbar-expand-sm navbar-dark p-2" style="background-color: #0d1b2a;">
             <div class="container">
-                <a th:href="@{/}" class="navbar-brand">Gestion de Ingresos y Eresos</a>
+                <a th:href="@{/}" class="navbar-brand">Gestion de Ingresos y Egresos</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -20,10 +22,10 @@
                             <a th:href="@{/}" class="nav-link active">Inicio</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-2 mr-4">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-user"></i>
+                                <i class="fa-solid fa-circle-user" style='font-size:18px'></i>
                                 <span>Bienvenido</span>
                                 <span>Empleado</span>
                             </a>
@@ -31,7 +33,7 @@
                         <li class="nav-item mr-4">
                             <form method="post" th:action="@{logout}">
                                 <a href="#" onclick="this.parentNode.submit();" class="nav-link">
-                                    <i class="fas fa-user-times"></i>
+                                    <i class="fa-solid fa-door-open" style='font-size:18px'></i>
                                     Salir
                                 </a>
                             </form>
@@ -48,14 +50,14 @@
     <section th:fragment="mainIndex" id="main-index" class="py-2" style="background-color: #e0e1dd;">
         <div class="container">
             <div class="row">
-                <h1 class="col-md-6">
-                    <i class="fas fa-cog"></i>Sistema movimientos
-                </h1>
+                <h2 class="col-md-6">
+                    <span>Bienvenido</span>
+                </h2>
             </div>
         </div>
     </section>
 
-    <section th:fragment="mainClientes" id="main-cliente" class="py-2 bg-info text-white">
+    <section th:fragment="mainClientes" id="main-cliente" class="py-2" style="background-color: #e0e1dd;">
         <div class="container">
             <div class="row">
                 <h1 class="col-md-6">
@@ -65,7 +67,7 @@
         </div>
     </section>
 
-    <footer th:fragment="footer" class="p-2 mt-2 text-white" style="background-color: #0d1b2a;"><!--acb7c3-->
+    <footer th:fragment="footer" class="p-1 mt-2 text-white footer-down " style="background-color: #0d1b2a;"><!--acb7c3-->
         <div class="container">
             <div class="col">
                 <p class="lead text-center">

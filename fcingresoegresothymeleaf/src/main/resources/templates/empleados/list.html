@@ -5,33 +5,44 @@
     <title>Lista de Empleados</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <section th:replace="layout/plantilla :: mainClientes"></section>
-    <h2>Lista de Empleados</h2>
-    <a th:href="@{/}">Inicio</a><br>
-    <a th:href="@{/empleados/crear}">Nuevo Empleado</a>
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Cédula</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <!--<th>Empresa</th>-->
-            <th>Editar</th>
-            <th>Eliminar</th>
-        </tr>
-        <tr th:each="empleado : ${empleados}" th:if="${empleado.estado}">
-            <td th:text="${empleado.nombre}"></td>
-            <td th:text="${empleado.cedula}"></td>
-            <td th:text="${empleado.telefono}"></td>
-            <td th:text="${empleado.correo}"></td>
-            <!--<td th:text="${empleado.empresa}"></td>-->
-            <td><a th:href="@{/editar/}+${empleado.idEmpleado}" th:text="Editar"></a></td>
-            <td><a th:href="@{/eliminar/}+${empleado.idEmpleado}" th:text="Eliminar">Eliminar</a></td>
-        </tr>
-    </table>
+
+    <section class="container">
+        <h2>Lista de Empleados</h2>
+        <br>
+        <a th:href="@{/empleados/crear}">Nuevo Empleado</a>
+    </section>
+    <br>
+
+    <section class="container">
+        <table  class="table table-sm table-striped table-bordered" style="border-color: #0d1b2a;">
+            <thead>
+                <tr class="">
+                    <th >Nombre</th>
+                    <th>Cédula</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <!--<th>Empresa</th>-->
+                    <th class="tcenter">Editar</th>
+                    <th class="tcenter">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr th:each="empleado : ${empleados}" th:if="${empleado.estado}">
+                    <td th:text="${empleado.nombre}"></td>
+                    <td th:text="${empleado.cedula}"></td>
+                    <td th:text="${empleado.telefono}"></td>
+                    <td th:text="${empleado.correo}"></td>
+                    <!--<td th:text="${empleado.empresa}"></td> th:text="Editar"  th:text="Eliminar" -->
+                    <td class="tcenter"><a th:href="@{/editar/}+${empleado.idEmpleado}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td class="tcenter"><a th:href="@{/eliminar/}+${empleado.idEmpleado}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <footer th:replace="layout/plantilla :: footer"></footer>
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>

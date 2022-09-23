@@ -1,6 +1,7 @@
 package com.fivecode.fcingresoegresothymeleaf.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -13,9 +14,11 @@ public class MovimientoDinero {
     @Column(name = "id_transaccion", nullable = false)//Cambiar el nombre en la BD, si no se quiere cambiar no es necesario colocar "name"
     private long idTransaccion;
 
+    @NotEmpty
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
+    //@NotEmpty
     @Column(name = "monto", nullable = false)
     private float monto;
 
@@ -32,6 +35,7 @@ public class MovimientoDinero {
     private Empresa empresa;
     */
 
+    //@NotEmpty
     @Column(name = "fecha", nullable = false)
     private Date fecha;
 

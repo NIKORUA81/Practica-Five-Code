@@ -5,46 +5,76 @@
     <title>Five Code</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <section th:replace="layout/plantilla :: mainIndex"></section>
-    <div class="container m-3">
-        <p th:text="${mensaje}" ></p>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <a th:href="@{/empleados/list}">
-                        <img th:src="@{/images/employee640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgEmpleados" title="Empleados">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><a th:href="@{/empleados/list}" class="nav-link active" style="color:#0d1b2a;">Empleados</a></h5>
+    <!--<section th:replace="layout/plantilla :: mainIndex"><p th:text="${mensaje}" ></p></section>-->
+    <section class="container">
+        <div class="container m-3">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem; border-color: #0d1b2a;">
+                        <a th:href="@{/empleados/list}">
+                            <img src="/images/job-5382501_320.jpg" class="card-img-top img-rounded" alt="ImgEmpleados" title="Empleados">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><a th:href="@{/empleados/list}" class="nav-link active" style="color:#0d1b2a;">Empleados</a></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <a th:href="@{/empresas/list}">
-                        <img th:src="@{/images/store-832188_640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgEmpresas" title="Empresas">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><a th:href="@{/empresas/list}" class="nav-link active" style="color:#0d1b2a;">Empresas</a></h5>
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem; border-color: #0d1b2a;">
+                        <a th:href="@{/empresas/list}">
+                            <img src="/images/store-832188_320.jpg" class="card-img-top img-rounded he" alt="ImgEmpresas" title="Empresas">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><a th:href="@{/empresas/list}" class="nav-link active" style="color:#0d1b2a;">Empresas</a></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <a th:href="@{/movimientos/list}">
-                        <img th:src="@{/images/finanza-385506_640.jpg}" class="card-img-top img-rounded img-responsive" alt="ImgMovimientos" title="Movimientos">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><a th:href="@{/movimientos/list}" class="nav-link active" style="color:#0d1b2a;">Movimientos</a></h5>
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem; border-color: #0d1b2a;">
+                        <a th:href="@{/movimientos/list}">
+                            <img src="/images/finanza-385506_320.jpg" class="card-img-top img-rounded he" alt="ImgMovimientos" title="Movimientos">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><a th:href="@{/movimientos/list}" class="nav-link active" style="color:#0d1b2a;">Movimientos</a></h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!--
+    <div class="card-group">
+        <div class="card">
+            <img src="/images/job-5382501_640.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/images/store-832188_640.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/images/finanza-385506_640.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+    -->
 
     <footer th:replace="layout/plantilla :: footer"></footer>
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>

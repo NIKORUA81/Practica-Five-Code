@@ -5,25 +5,41 @@
   <title>Movimiento</title>
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+  <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
+  <header th:replace="layout/plantilla :: header"></header>
   <h1>Movimiento</h1>
   <a th:href="@{/}">Inicio</a>
   <br>
   <a th:href="@{/movimientos/list}">Movimientos</a>
   <form th:action="@{/movimientos/guardar}" method="post" th:object="${movimiento}">
+    <input type="hidden" name="idTransaccion" th:field="*{idTransaccion}" />
+    <br>
+
     <label for="fecha">Fecha</label>
-    <input type="date" name="fecha" th:field="*{fecha}"/>
+    <input type="datetime-local" name="fecha" th:field="*{fecha}"/>
+    <!--<span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Error fecha</span>-->
     <br>
 
     <label for="descripcion">Descripción</label>
     <input type="text" name="descripcion" th:field="*{descripcion}"/>
+    <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error descripción</span>
     <br>
+
     <label for="monto">Monto</label>
     <input type="text" name="monto" th:field="*{monto}"/>
+    <span th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}">Error monto</span>
     <br>
+
     <label for="empleado">Empleado</label>
-    <input type="text" name="empleado" th:field="*{empleado}"/>
+    <select th:field="*{empleado.idEmpleado}" name="empleado">
+      <option value="0" selected>Seleccione el empleado</option>
+      <option th:each="empleado : ${empleados}"
+              th:value="${empleado.idEmpleado}"
+              th:text="${empleado.nombre}"
+      ></option>
+    </select>
     <br>
     <!--
     <label for="empresa">Empresa</label>
@@ -32,6 +48,7 @@
     -->
     <input type="submit" name="guardar" value="Guardar">
   </form>
+
   <footer th:replace="layout/plantilla :: footer"></footer>
   <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>

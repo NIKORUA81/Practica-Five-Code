@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Lista de Empresas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
-    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
@@ -12,21 +13,27 @@
     <a th:href="@{/}">Inicio</a>
     <br>
     <a th:href="@{/empresas/crear}">Nueva empresa</a>
-    <table border="1">
+    <table border="1" class="border border-secondary rounded">
         <tr>
             <th>Nit</th>
             <th>Nombre</th>
             <th>Dirección</th>
             <th>Telefono</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
-        <tr th:each="empresa : ${empresas}">
+        <tr th:each="empresa : ${empresas}" th:if="${empresa.estado}">
             <td th:text="${empresa.nit}"></td>
             <td th:text="${empresa.nombre}"></td>
             <td th:text="${empresa.direccion}"></td>
             <td th:text="${empresa.telefono}"></td>
+            <td><a th:href="@{/empresas/editar/}+${empresa.idEmpresa}" th:text="Editar"></a></td>
+            <td><a th:href="@{/empresas/eliminar/}+${empresa.idEmpresa}" th:text="Eliminar">Eliminar</a></td>
         </tr>
     </table>
 
     <footer th:replace="layout/plantilla :: footer"></footer>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
 </html>

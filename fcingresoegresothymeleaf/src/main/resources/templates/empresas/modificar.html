@@ -5,6 +5,7 @@
   <title>Datos de la empresa</title>
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.2/css/all.min.css}" >
+  <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
   <header th:replace="layout/plantilla :: header"></header>
@@ -13,14 +14,19 @@
   <br>
   <a th:href="@{/empresas/list}">Empresas</a>
   <form th:action="@{/empresas/guardar}" method="post" th:object="${empresa}">
+    <input type="hidden" name="idEmpresa" th:field="*{idEmpresa}" />
+    <br>
     <label for="nit">Nit</label>
     <input type="text" name="nit" th:field="*{nit}" />
+    <span th:if="${#fields.hasErrors('nit')}" th:errors="*{nit}">Error Nit</span>
     <br>
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" th:field="*{nombre}"/>
+    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error nombre</span>
     <br>
     <label for="direccion">Dirección</label>
     <input type="text" name="direccion" th:field="*{direccion}"/>
+    <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Error cédula</span>
     <br>
     <label for="telefono">Teléfono</label>
     <input type="text" name="telefono" th:field="*{telefono}" />
