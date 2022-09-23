@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Plantilla</title>
@@ -22,12 +23,12 @@
                             <a th:href="@{/}" class="nav-link active">Inicio</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ms-auto">
+                    <ul sec:authorize="isAuthenticated()" class="navbar-nav ms-auto">
                         <li class="nav-item px-2 mr-4">
                             <a href="#" class="nav-link">
                                 <i class="fa-solid fa-circle-user" style='font-size:18px'></i>
                                 <span>Bienvenido</span>
-                                <span>Empleado</span>
+                                <span sec:authentication="name"></span>
                             </a>
                         </li>
                         <li class="nav-item mr-4">

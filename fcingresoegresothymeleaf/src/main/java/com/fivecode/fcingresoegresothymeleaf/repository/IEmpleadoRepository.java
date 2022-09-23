@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface IEmpleadoRepository extends CrudRepository<Empleado, Long> {
 
+    Empleado finbByEmpleado(String correo);
+
 }

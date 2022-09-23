@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Empleados</title>
@@ -26,8 +27,8 @@
                     <th>Teléfono</th>
                     <th>Correo</th>
                     <!--<th>Empresa</th>-->
-                    <th class="tcenter">Editar</th>
-                    <th class="tcenter">Eliminar</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Editar</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Eliminar</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -37,8 +38,8 @@
                     <td th:text="${empleado.telefono}"></td>
                     <td th:text="${empleado.correo}"></td>
                     <!--<td th:text="${empleado.empresa}"></td> th:text="Editar"  th:text="Eliminar" -->
-                    <td class="tcenter"><a th:href="@{/editar/}+${empleado.idEmpleado}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
-                    <td class="tcenter"><a th:href="@{/eliminar/}+${empleado.idEmpleado}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/editar/}+${empleado.idEmpleado}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/eliminar/}+${empleado.idEmpleado}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
                 </tr>
             </tbody>
         </table>

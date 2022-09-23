@@ -21,6 +21,10 @@ public class Empleado {
     @NotEmpty
     @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
     private String cedula;
+
+    @NotEmpty
+    @Column(name = "username", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
+    private String username;
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])([A-Za-z\\d$@$!%*?&]|[^ ]){8,15}$" , message = "La contraseña debe contener minimo 8 caracteres, máximo 15, una letra mayúscula, una letra minuscula, un número, un caracter especial y sin espacios en blanco")
     @Column(name = "clave", nullable = false)
     private String clave;
@@ -138,6 +142,15 @@ public class Empleado {
         this.rol = rol;
     }
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "Empleado{" +
@@ -145,6 +158,7 @@ public class Empleado {
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
                 ", cedula='" + cedula + '\'' +
+                ", username='" + username + '\'' +
                 ", clave='" + clave + '\'' +
                 ", empresa=" + empresa +
                 ", estado=" + estado +

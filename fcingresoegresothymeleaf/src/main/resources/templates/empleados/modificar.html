@@ -32,6 +32,13 @@
         <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">Error correo</span>
         <br>
 
+        <!--
+        <label for="username">Usuario</label>
+        <input type="text" name="username" th:field="*{username}"/>
+        <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">Error usuario</span>
+        <br>
+        -->
+
         <label for="clave">Clave</label>
         <input type="text" name="clave" th:field="*{clave}"/>
         <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">Error clave</span>
