@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Empresas</title>
@@ -9,28 +10,44 @@
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <h2>Lista de Empresas</h2>
-    <a th:href="@{/}">Inicio</a>
+
     <br>
-    <a th:href="@{/empresas/crear}">Nueva empresa</a>
-    <table border="1" class="border border-secondary rounded">
-        <tr>
-            <th>Nit</th>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Telefono</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-        </tr>
-        <tr th:each="empresa : ${empresas}" th:if="${empresa.estado}">
-            <td th:text="${empresa.nit}"></td>
-            <td th:text="${empresa.nombre}"></td>
-            <td th:text="${empresa.direccion}"></td>
-            <td th:text="${empresa.telefono}"></td>
-            <td><a th:href="@{/empresas/editar/}+${empresa.idEmpresa}" th:text="Editar"></a></td>
-            <td><a th:href="@{/empresas/eliminar/}+${empresa.idEmpresa}" th:text="Eliminar">Eliminar</a></td>
-        </tr>
-    </table>
+    <section class="container">
+        <h2 class="text-center">Lista de Empresas</h2>
+        <br>
+    </section>
+    <br>
+
+    <section class="container">
+        <table class="table table-sm table-hover table-bordered" style="border-color: #B5D7FF;">
+            <thead>
+                <tr class="" style="background-color: #92BFF0">
+                    <th>Nit</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Editar</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr th:each="empresa : ${empresas}" th:if="${empresa.estado}">
+                    <td th:text="${empresa.nit}"></td>
+                    <td th:text="${empresa.nombre}"></td>
+                    <td th:text="${empresa.direccion}"></td>
+                    <td th:text="${empresa.telefono}"></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/empresas/editar/}+${empresa.idEmpresa}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/empresas/eliminar/}+${empresa.idEmpresa}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="container">
+        <div sec:authorize="hasRole('ROLE_ADMIN')" class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btnnew" style="" th:href="@{/empresas/crear}">Nuevo</a>
+        </div>
+    </section>
 
     <footer th:replace="layout/plantilla :: footer"></footer>
     <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>

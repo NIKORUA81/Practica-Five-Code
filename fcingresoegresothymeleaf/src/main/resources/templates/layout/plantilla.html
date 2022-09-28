@@ -27,15 +27,15 @@
                         <li class="nav-item px-2 mr-4">
                             <a href="#" class="nav-link">
                                 <i class="fa-solid fa-circle-user" style='font-size:18px'></i>
-                                <span>Bienvenido</span>
+                                <span> Bienvenido: </span>
                                 <span sec:authentication="name"></span>
                             </a>
                         </li>
                         <li class="nav-item mr-4">
-                            <form method="post" th:action="@{logout}">
+                            <form method="post" th:action="@{/logout}">
                                 <a href="#" onclick="this.parentNode.submit();" class="nav-link">
                                     <i class="fa-solid fa-door-open" style='font-size:18px'></i>
-                                    Salir
+                                     Salir
                                 </a>
                             </form>
                         </li>

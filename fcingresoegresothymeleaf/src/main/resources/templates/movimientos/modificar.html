@@ -8,49 +8,61 @@
   <link rel="stylesheet" th:href="@{/css/css.footer.css}">
 </head>
 <body>
-  <header th:replace="layout/plantilla :: header"></header>
-  <h1>Movimiento</h1>
-  <a th:href="@{/}">Inicio</a>
-  <br>
-  <a th:href="@{/movimientos/list}">Movimientos</a>
-  <form th:action="@{/movimientos/guardar}" method="post" th:object="${movimiento}">
-    <input type="hidden" name="idTransaccion" th:field="*{idTransaccion}" />
-    <br>
+    <header th:replace="layout/plantilla :: header"></header>
 
-    <label for="fecha">Fecha</label>
-    <input type="datetime-local" name="fecha" th:field="*{fecha}"/>
-    <!--<span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Error fecha</span>-->
     <br>
+    <section class="container">
+      <h2 class="text-center">Detalle del movimiento</h2>
+      <br>
+    </section>1>
 
-    <label for="descripcion">Descripción</label>
-    <input type="text" name="descripcion" th:field="*{descripcion}"/>
-    <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error descripción</span>
-    <br>
+    <section class="container" >
+      <div class="centsect">
+        <form th:action="@{/movimientos/guardar}" method="post" th:object="${movimiento}" style="width: 40%;">
+          <input type="hidden" name="idTransaccion" th:field="*{idTransaccion}" />
+          <br>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="datetime-local" name="fecha" th:field="*{fecha}"/>
+            <!--<span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Error fecha</span>-->
+            <br>
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" name="descripcion" class="form-control" aria-describedby="emailHelp"  th:field="*{descripcion}"/>
+            <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error descripción</span>
+            <br>
+          </div>
+          <div class="mb-3">
+            <label for="monto" class="form-label">Monto</label>
+            <input type="text" name="monto" class="form-control" aria-describedby="emailHelp"  th:field="*{monto}"/>
+            <span th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}">Error monto</span>
+            <br>
+          </div>
+          <div class="mb-3">
+            <label for="empleado" class="form-label">Empleado</label>
+            <select th:field="*{empleado.idEmpleado}" name="empleado" class="form-select">
+              <option value="0" selected>Seleccione el empleado</option>
+              <option th:each="empleado : ${empleados}"
+                      th:value="${empleado.idEmpleado}"
+                      th:text="${empleado.nombre}"
+              ></option>
+            </select>
+            <br>
+          </div>
 
-    <label for="monto">Monto</label>
-    <input type="text" name="monto" th:field="*{monto}"/>
-    <span th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}">Error monto</span>
-    <br>
+          <div class="centsect">
+            <input type="submit" name="guardar" value="Guardar" class="">
+            <a class="btn btnnew" th:href="@{/movimientos/list}">Cancelar</a>
+          </div>
 
-    <label for="empleado">Empleado</label>
-    <select th:field="*{empleado.idEmpleado}" name="empleado">
-      <option value="0" selected>Seleccione el empleado</option>
-      <option th:each="empleado : ${empleados}"
-              th:value="${empleado.idEmpleado}"
-              th:text="${empleado.nombre}"
-      ></option>
-    </select>
-    <br>
-    <!--
-    <label for="empresa">Empresa</label>
-    <input type="text" name="empresa" th:field="*{empresa}"/>
-    <br>
-    -->
-    <input type="submit" name="guardar" value="Guardar">
-  </form>
+        </form>
+      </div>
+    </section>
 
-  <footer th:replace="layout/plantilla :: footer"></footer>
-  <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
 </html>

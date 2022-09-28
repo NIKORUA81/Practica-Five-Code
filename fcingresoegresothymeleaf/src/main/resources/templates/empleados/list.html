@@ -11,21 +11,20 @@
 <body>
     <header th:replace="layout/plantilla :: header"></header>
 
-    <section class="container">
-        <h2>Lista de Empleados</h2>
-        <br>
-        <a th:href="@{/empleados/crear}">Nuevo Empleado</a>
-    </section>
     <br>
+    <section class="container">
+        <h2 class="text-center">Lista de Empleados</h2>
+        <br>
+    </section>
 
     <section class="container">
-        <table  class="table table-sm table-striped table-bordered" style="border-color: #0d1b2a;">
+        <table  class="table table-sm table-hover table-bordered" style="border-color: #B5D7FF;">
             <thead>
-                <tr class="">
+                <tr class="" style="background-color: #92BFF0">
                     <th >Nombre</th>
                     <th>Cédula</th>
                     <th>Teléfono</th>
-                    <th>Correo</th>
+                    <th>Usuario</th>
                     <!--<th>Empresa</th>-->
                     <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Editar</th>
                     <th sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter">Eliminar</th>
@@ -36,13 +35,17 @@
                     <td th:text="${empleado.nombre}"></td>
                     <td th:text="${empleado.cedula}"></td>
                     <td th:text="${empleado.telefono}"></td>
-                    <td th:text="${empleado.correo}"></td>
-                    <!--<td th:text="${empleado.empresa}"></td> th:text="Editar"  th:text="Eliminar" -->
+                    <td th:text="${empleado.username}"></td>
                     <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/editar/}+${empleado.idEmpleado}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
                     <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/eliminar/}+${empleado.idEmpleado}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
                 </tr>
             </tbody>
         </table>
+    </section>
+    <section class="container">
+        <div sec:authorize="hasRole('ROLE_ADMIN')" class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btnnew" style="" th:href="@{/empleados/crear}">Nuevo</a>
+        </div>
     </section>
 
     <footer th:replace="layout/plantilla :: footer"></footer>

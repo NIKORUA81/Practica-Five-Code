@@ -15,17 +15,22 @@ public class Empleado {
     @javax.validation.constraints.NotEmpty
     @Column(name = "nombre", nullable = false) //nullable = false, el campo no puede estar nulo
     private String nombre;
+
+    @NotEmpty
     @Pattern(regexp = "[a-zA-Z0-9!#$%&'*_+-]([\\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\\/()=?¿!.,:;]|\\d)+[a-zA-Z0-9][\\.][a-zA-Z]{2,4}([\\.][a-zA-Z]{2})?" ,message = "Debe ser un correo electrónico válido")
-    @Column(name = "correo", nullable = false)
-    private String correo;
+    @Column(name = "username", nullable = false, unique = true)//Este campo es el del correo
+    private String username;
     @NotEmpty
     @Column(name = "cedula", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
     private String cedula;
 
+    /*
     @NotEmpty
-    @Column(name = "username", nullable = false, unique = true)//unique = true, que el campo sea único, que no se repita
+    @Column(name = "username", unique = true)//unique = true, que el campo sea único, que no se repita
     private String username;
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])([A-Za-z\\d$@$!%*?&]|[^ ]){8,15}$" , message = "La contraseña debe contener minimo 8 caracteres, máximo 15, una letra mayúscula, una letra minuscula, un número, un caracter especial y sin espacios en blanco")
+    */
+
+    //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])([A-Za-z\\d$@$!%*?&]|[^ ]){8,15}$" , message = "La contraseña debe contener minimo 8 caracteres, máximo 15, una letra mayúscula, una letra minuscula, un número, un caracter especial y sin espacios en blanco")
     @Column(name = "clave", nullable = false)
     private String clave;
     @ManyToOne //Cardinalidad
@@ -37,17 +42,10 @@ public class Empleado {
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @Column(name = "rol")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "rol", nullable = false)
     private Rol rol;
 
-
-    /*public Empleado(long idEmpleado, String nombre, String correo, int cedula, String clave){
-        this.idEmpleado = idEmpleado;
-        this.nombre = nombre;
-        this.correo = correo;
-        this.cedula = cedula;
-        this.clave = clave;
-    }*/
 
     public long getIdEmpleado() {
 
@@ -65,16 +63,6 @@ public class Empleado {
     public void setNombre(String nombre) {
 
         this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-
-        this.correo = correo;
     }
 
     public String getCedula() {
@@ -133,15 +121,12 @@ public class Empleado {
     }*/
 
     public Rol getRol() {
-        return
-                rol;
+        return rol;
     }
 
     public void setRol(Rol rol) {
-
         this.rol = rol;
     }
-
 
     public String getUsername() {
         return username;
@@ -156,9 +141,8 @@ public class Empleado {
         return "Empleado{" +
                 "idEmpleado=" + idEmpleado +
                 ", nombre='" + nombre + '\'' +
-                ", correo='" + correo + '\'' +
-                ", cedula='" + cedula + '\'' +
                 ", username='" + username + '\'' +
+                ", cedula='" + cedula + '\'' +
                 ", clave='" + clave + '\'' +
                 ", empresa=" + empresa +
                 ", estado=" + estado +

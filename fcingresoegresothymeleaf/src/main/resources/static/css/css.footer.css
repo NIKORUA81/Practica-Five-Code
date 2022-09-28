@@ -22,3 +22,23 @@ img .he{
 .tcenter{
     text-align: center;
 }
+
+.btnnew{
+    background-color: #92BFF0;
+    text-color: #0d1b2a;
+    border: 1px solid #B5D7FF;
+}
+
+input[type=submit] {
+  background-color: #92BFF0;
+  text-color: #0d1b2a;
+  padding: 8px 10px;
+  border: 1px solid #B5D7FF;
+  border-radius: 4px;
+}
+
+.centsect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

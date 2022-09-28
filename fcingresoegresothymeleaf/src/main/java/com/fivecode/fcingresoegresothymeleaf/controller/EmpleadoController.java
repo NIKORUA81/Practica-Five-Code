@@ -1,14 +1,19 @@
 package com.fivecode.fcingresoegresothymeleaf.controller;
 
+import ch.qos.logback.classic.joran.ReconfigureOnChangeTaskListener;
 import com.fivecode.fcingresoegresothymeleaf.entities.Empleado;
 import com.fivecode.fcingresoegresothymeleaf.entities.Empresa;
+import com.fivecode.fcingresoegresothymeleaf.entities.Rol;
 import com.fivecode.fcingresoegresothymeleaf.service.IEmpleadoService;
 import com.fivecode.fcingresoegresothymeleaf.service.IEmpresaService;
+import com.fivecode.fcingresoegresothymeleaf.service.IRolService;
+import com.fivecode.fcingresoegresothymeleaf.util.EncriptarPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,13 +26,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Controller
-public class EmpleadoController {
+public class EmpleadoController extends EncriptarPassword {
 
     @Autowired
     private IEmpleadoService empleadoService;
 
     @Autowired
     private IEmpresaService empresaService;
+
+    @Autowired
+    private IRolService rolService;
 
     private final Logger LOG = Logger.getLogger(""+ EmpleadoController.class);
 
@@ -58,21 +66,32 @@ public class EmpleadoController {
         //Empresas
         List<Empresa> empresas = empresaService.findAll();
         modelo.addAttribute("empresas", empresas);
+        //Rol
+        List<Rol> roles = rolService.findAll();
+        modelo.addAttribute("roles", roles);
         return "/empleados/modificar";
     }
 
     @PostMapping("/empleados/guardar")
     public String guardarEmpleado(@Valid Empleado employee, BindingResult error, Model model){
         LOG.log(Level.INFO, "guardarEmpleado");
-        /*
-        if(employee.getEmpresa().getIdEmpresa() == -1) {
-            String propertyPath = "violation.getPropertyPath().toString";
-            String message = "No puede ser null";
+
+        if(employee.getRol().getIdRol() == 0){
+            FieldError field = new FieldError("empleado", "rol", "No puede ser null");
+            error.addError(field);
         }
-        */
+
+        if(employee.getEmpresa().getIdEmpresa() == 0) {
+            FieldError field = new FieldError("empleado", "empresa", "No puede ser null");
+            error.addError(field);
+        }
+
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
+            //Roles
+            List<Rol> roles = rolService.findAll();
+            model.addAttribute("roles", roles);
             //Empresas
             List<Empresa> empresas = empresaService.findAll();
             model.addAttribute("empresas", empresas);
@@ -80,6 +99,7 @@ public class EmpleadoController {
         }
         employee.setEstado(true);
         //System.out.println(employee.toString());
+        employee.setClave(encriptarPassword(employee.getClave()));
         employee = empleadoService.createEmpleado(employee);
         return "redirect:/empleados/list";
     }
@@ -87,10 +107,12 @@ public class EmpleadoController {
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
     public String editEmpleado(@PathVariable("id") long id, Model model){
         LOG.log(Level.INFO, "editEmpleado");
-        System.out.println(id);
         Empleado empleado = empleadoService.findById(id);
         System.out.println(empleado.toString());
         model.addAttribute("empleado", empleado);
+        //Roles
+        List<Rol> roles = rolService.findAll();
+        model.addAttribute("roles", roles);
         //Empresas
         List<Empresa> empresas = empresaService.findAll();
         model.addAttribute("empresas", empresas);

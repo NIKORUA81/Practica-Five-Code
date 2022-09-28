@@ -9,30 +9,46 @@
 </head>
 <body>
   <header th:replace="layout/plantilla :: header"></header>
-  <h1>Datos de la empresa</h1>
-  <a th:href="@{/}">Inicio</a>
+
   <br>
-  <a th:href="@{/empresas/list}">Empresas</a>
-  <form th:action="@{/empresas/guardar}" method="post" th:object="${empresa}">
-    <input type="hidden" name="idEmpresa" th:field="*{idEmpresa}" />
+  <section class="container">
+    <h2 class="text-center">Datos de la empresa</h2>
     <br>
-    <label for="nit">Nit</label>
-    <input type="text" name="nit" th:field="*{nit}" />
-    <span th:if="${#fields.hasErrors('nit')}" th:errors="*{nit}">Error Nit</span>
-    <br>
-    <label for="nombre">Nombre</label>
-    <input type="text" name="nombre" th:field="*{nombre}"/>
-    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error nombre</span>
-    <br>
-    <label for="direccion">Dirección</label>
-    <input type="text" name="direccion" th:field="*{direccion}"/>
-    <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Error cédula</span>
-    <br>
-    <label for="telefono">Teléfono</label>
-    <input type="text" name="telefono" th:field="*{telefono}" />
-    <br>
-    <input type="submit" name="guardar" value="Guardar">
-  </form>
+  </section>
+
+  <section class="container" >
+    <div class="centsect">
+      <form th:action="@{/empresas/guardar}" method="post" th:object="${empresa}" style="width: 40%;">
+        <input type="hidden" name="idEmpresa" th:field="*{idEmpresa}" />
+        <br>
+        <div class="mb-3">
+          <label for="nit" class="form-label">Nit</label>
+          <input type="text" name="nit" class="form-control" aria-describedby="emailHelp" th:field="*{nit}" />
+          <span th:if="${#fields.hasErrors('nit')}" th:errors="*{nit}">Error Nit</span>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" name="nombre" class="form-control" aria-describedby="emailHelp" th:field="*{nombre}"/>
+          <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error nombre</span>
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" name="direccion" class="form-control" aria-describedby="emailHelp" th:field="*{direccion}"/>
+          <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Error cédula</span>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" name="telefono" class="form-control" aria-describedby="emailHelp" th:field="*{telefono}" />
+        </div>
+
+        <div class="centsect">
+          <input type="submit" name="guardar" value="Guardar" class="">
+          <a class="btn btnnew" th:href="@{/empresas/list}">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <footer th:replace="layout/plantilla :: footer"></footer>
   <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>

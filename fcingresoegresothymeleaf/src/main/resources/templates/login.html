@@ -9,16 +9,21 @@
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <h1>Login</h1>
-    <form method="post" th:action="@{/login}">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <br>
-        <input type="submit" value="login">
-    </form>
+    <section class="container">
+        <h1>Login</h1>
+        <form method="post" th:action="@{/login}">
+            <label for="username">Usuario</label>
+            <input type="text" name="username">
+            <br>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password">
+            <br>
+            <input type="submit" value="login">
+        </form>
+    </section>
 
+    <footer th:replace="layout/plantilla :: footer"></footer>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper/js/2.9.3/umd/popper.min.js}"></script>
 </body>
 </html>
