@@ -76,7 +76,7 @@ public class MovimientoController {
     @RequestMapping(value = "/movimientos/editar/{id}", method = RequestMethod.GET)
     public String editMovimientos(@PathVariable("id") long id, Model model){
         LOG.log(Level.INFO, "editMovimientos");
-        System.out.println(id);
+        //System.out.println(id);
         MovimientoDinero moven = movimientoService.findById(id);
         System.out.println(moven.toString());
         model.addAttribute("moven", moven);

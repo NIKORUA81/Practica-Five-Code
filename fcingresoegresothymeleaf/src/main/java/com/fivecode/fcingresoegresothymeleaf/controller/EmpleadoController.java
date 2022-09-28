@@ -88,6 +88,7 @@ public class EmpleadoController extends EncriptarPassword {
 
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
+
         if(error.hasErrors()) {
             //Roles
             List<Rol> roles = rolService.findAll();
