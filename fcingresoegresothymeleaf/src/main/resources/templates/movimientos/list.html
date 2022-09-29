@@ -17,7 +17,7 @@
     </section>
 
     <section class="container">
-        <table border="1" class="border border-secondary rounded" style="border-color: #B5D7FF;">
+        <table class="table table-sm table-hover table-bordered" style="border-color: #B5D7FF;">
             <thead>
                 <tr style="background-color: #92BFF0">
                     <th>Fecha</th>
@@ -33,9 +33,9 @@
                     <td th:text="${movimiento.fecha}"></td>
                     <td th:text="${movimiento.descripcion}"></td>
                     <td th:text="${movimiento.monto}"></td>
-                    <td th:text="${movimiento.empleado}"></td>
-                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/movimientos/editar/}+${movimiento.idTransaccion}" th:text="Editar"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
-                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/movimientos/eliminar/}+${movimiento.idTransaccion}" th:text="Eliminar"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td th:text="${movimiento.empleado.nombre}"></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/movimientos/editar/}+${movimiento.idTransaccion}"><i class="fa-solid fa-file-pen" style='font-size:18px; color:#0d1b2a;'></i></a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" class="tcenter"><a th:href="@{/movimientos/eliminar/}+${movimiento.idTransaccion}"><i class="fa-solid fa-trash" style='font-size:18px; color:#0d1b2a;'></i></a></td>
                 </tr>
             </tbody>
         </table>

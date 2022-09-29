@@ -37,7 +37,7 @@ public class MovimientoDinero {
 
     //@NotEmpty
     @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    private String fecha;
 
     /*
     public MovimientoDinero(long idTransaccion, String descripcion, float monto) {
@@ -98,11 +98,11 @@ public class MovimientoDinero {
     }
     */
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -114,7 +114,7 @@ public class MovimientoDinero {
                 ", monto=" + monto +
                 ", empleado=" + empleado +
                 ", estado=" + estado +
-                ", fecha=" + fecha +
+                ", fecha='" + fecha + '\'' +
                 '}';
     }
 

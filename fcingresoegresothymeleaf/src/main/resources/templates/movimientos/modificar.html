@@ -22,23 +22,20 @@
           <input type="hidden" name="idTransaccion" th:field="*{idTransaccion}" />
           <br>
           <div class="mb-3">
-            <!--
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="date" name="fecha" th:field="*{fecha}"/>
-            <span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Error fecha</span>-->
-            <br>
+            <input type="text" class="form-control" aria-describedby="emailHelp"  name="fecha" th:field="*{fecha}"/>
+            <p style="opacity: .8;">Formato de la fecha: dd-mm-YYYY (día, mes y año)</p>
+            <span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Error fecha</span>
           </div>
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
             <input type="text" name="descripcion" class="form-control" aria-describedby="emailHelp"  th:field="*{descripcion}"/>
             <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error descripción</span>
-            <br>
           </div>
           <div class="mb-3">
             <label for="monto" class="form-label">Monto</label>
             <input type="text" name="monto" class="form-control" aria-describedby="emailHelp"  th:field="*{monto}"/>
             <span th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}">Error monto</span>
-            <br>
           </div>
           <div class="mb-3">
             <label for="empleado" class="form-label">Empleado</label>
@@ -49,14 +46,14 @@
                       th:text="${empleado.nombre}"
               ></option>
             </select>
-            <br>
           </div>
 
           <div class="centsect">
             <input type="submit" name="guardar" value="Guardar" class="">
+          </div>
+          <div class="centsect">
             <a class="btn btnnew" th:href="@{/movimientos/list}">Cancelar</a>
           </div>
-
         </form>
       </div>
     </section>

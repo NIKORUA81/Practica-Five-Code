@@ -76,6 +76,8 @@ public class EmpleadoController extends EncriptarPassword {
     public String guardarEmpleado(@Valid Empleado employee, BindingResult error, Model model){
         LOG.log(Level.INFO, "guardarEmpleado");
 
+
+
         if(employee.getRol().getIdRol() == 0){
             FieldError field = new FieldError("empleado", "rol", "No puede ser null");
             error.addError(field);

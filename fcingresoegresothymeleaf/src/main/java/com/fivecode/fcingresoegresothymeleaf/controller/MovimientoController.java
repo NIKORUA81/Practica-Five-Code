@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,6 +60,12 @@ public class MovimientoController {
     @PostMapping("/movimientos/guardar")
     public String guardarMovimiento(@Valid MovimientoDinero moven, BindingResult error, Model model){
         LOG.log(Level.INFO, "guardarMovimiento");
+
+        if(moven.getEmpleado().getIdEmpleado() == 0){
+            FieldError field = new FieldError("moven", "empleado", "No puede ser null");
+            error.addError(field);
+        }
+
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
@@ -67,6 +74,7 @@ public class MovimientoController {
             model.addAttribute("empleados", empleados);
             return "/movimientos/modificar";
         }
+
         moven.setEstado(true);
         //System.out.println(moven.toString());
         moven = movimientoService.createMovimiento(moven);
@@ -76,7 +84,7 @@ public class MovimientoController {
     @RequestMapping(value = "/movimientos/editar/{id}", method = RequestMethod.GET)
     public String editMovimientos(@PathVariable("id") long id, Model model){
         LOG.log(Level.INFO, "editMovimientos");
-        //System.out.println(id);
+        System.out.println(id);
         MovimientoDinero moven = movimientoService.findById(id);
         System.out.println(moven.toString());
         model.addAttribute("moven", moven);

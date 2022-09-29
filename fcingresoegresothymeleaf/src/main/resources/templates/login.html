@@ -9,17 +9,31 @@
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
+
+    <br>
     <section class="container">
-        <h1>Login</h1>
-        <form method="post" th:action="@{/login}">
-            <label for="username">Usuario</label>
-            <input type="text" name="username">
-            <br>
-            <label for="password">Contraseña</label>
-            <input type="password" name="password">
-            <br>
-            <input type="submit" value="login">
-        </form>
+        <h2 class="text-center">Login</h2>
+        <br>
+    </section>
+
+    <section class="container" >
+        <div class="centsect">
+            <form method="post" th:action="@{/login}" style="width: 20%;">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" name="username" class="form-control" aria-describedby="emailHelp">
+                    <br>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" name="password"class="form-control" aria-describedby="emailHelp">
+                    <br>
+                </div>
+                <div class="centsect">
+                    <input type="submit" value="login">
+                </div>
+            </form>
+        </div>
     </section>
 
     <footer th:replace="layout/plantilla :: footer"></footer>
